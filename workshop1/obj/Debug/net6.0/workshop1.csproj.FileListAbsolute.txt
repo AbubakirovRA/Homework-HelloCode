@@ -1,0 +1,16 @@
+D:\Мои Документы\Рабочий стол\Учеба в Гик Брэйнс\5. Знакомство с языком программирования С#\Семинары\Homework\workshop1\obj\Debug\net6.0\workshop1.GlobalUsings.g.cs
+D:\Мои Документы\Рабочий стол\Учеба в Гик Брэйнс\5. Знакомство с языком программирования С#\Семинары\Homework\workshop1\obj\Debug\net6.0\workshop1.csproj.AssemblyReference.cache
+D:\Мои Документы\Рабочий стол\Учеба в Гик Брэйнс\5. Знакомство с языком программирования С#\Семинары\Homework\workshop1\obj\Debug\net6.0\workshop1.GeneratedMSBuildEditorConfig.editorconfig
+D:\Мои Документы\Рабочий стол\Учеба в Гик Брэйнс\5. Знакомство с языком программирования С#\Семинары\Homework\workshop1\obj\Debug\net6.0\workshop1.AssemblyInfoInputs.cache
+D:\Мои Документы\Рабочий стол\Учеба в Гик Брэйнс\5. Знакомство с языком программирования С#\Семинары\Homework\workshop1\obj\Debug\net6.0\workshop1.AssemblyInfo.cs
+D:\Мои Документы\Рабочий стол\Учеба в Гик Брэйнс\5. Знакомство с языком программирования С#\Семинары\Homework\workshop1\obj\Debug\net6.0\workshop1.csproj.CoreCompileInputs.cache
+D:\Мои Документы\Рабочий стол\Учеба в Гик Брэйнс\5. Знакомство с языком программирования С#\Семинары\Homework\workshop1\bin\Debug\net6.0\workshop1.exe
+D:\Мои Документы\Рабочий стол\Учеба в Гик Брэйнс\5. Знакомство с языком программирования С#\Семинары\Homework\workshop1\bin\Debug\net6.0\workshop1.deps.json
+D:\Мои Документы\Рабочий стол\Учеба в Гик Брэйнс\5. Знакомство с языком программирования С#\Семинары\Homework\workshop1\bin\Debug\net6.0\workshop1.runtimeconfig.json
+D:\Мои Документы\Рабочий стол\Учеба в Гик Брэйнс\5. Знакомство с языком программирования С#\Семинары\Homework\workshop1\bin\Debug\net6.0\workshop1.dll
+D:\Мои Документы\Рабочий стол\Учеба в Гик Брэйнс\5. Знакомство с языком программирования С#\Семинары\Homework\workshop1\bin\Debug\net6.0\ref\workshop1.dll
+D:\Мои Документы\Рабочий стол\Учеба в Гик Брэйнс\5. Знакомство с языком программирования С#\Семинары\Homework\workshop1\bin\Debug\net6.0\workshop1.pdb
+D:\Мои Документы\Рабочий стол\Учеба в Гик Брэйнс\5. Знакомство с языком программирования С#\Семинары\Homework\workshop1\obj\Debug\net6.0\workshop1.dll
+D:\Мои Документы\Рабочий стол\Учеба в Гик Брэйнс\5. Знакомство с языком программирования С#\Семинары\Homework\workshop1\obj\Debug\net6.0\ref\workshop1.dll
+D:\Мои Документы\Рабочий стол\Учеба в Гик Брэйнс\5. Знакомство с языком программирования С#\Семинары\Homework\workshop1\obj\Debug\net6.0\workshop1.pdb
+D:\Мои Документы\Рабочий стол\Учеба в Гик Брэйнс\5. Знакомство с языком программирования С#\Семинары\Homework\workshop1\obj\Debug\net6.0\workshop1.genruntimeconfig.cache

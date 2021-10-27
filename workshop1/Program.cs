@@ -17,32 +17,25 @@ if (condition.ToLower() == "y")
     Console.WriteLine("Здорово! Приступим.");
 
     Console.WriteLine("Введите скорость движения первого друга (м/сек)");
-    string ff = Console.ReadLine();
-    double first_friend_speed = Convert.ToDouble (ff);
+    double first_friend_speed = Convert.ToDouble (Console.ReadLine());
 
     Console.WriteLine("Введите скорость движения второго друга (м/сек)");
-    string sf = Console.ReadLine();
-    double second_friend_speed = Convert.ToDouble (sf);
+    double second_friend_speed = Convert.ToDouble (Console.ReadLine());
 
     Console.WriteLine("Введите скорость движения их собаки (м/сек)");
-    string df = Console.ReadLine();
-    double dog_speed = Convert.ToDouble (df);
+    double dog_speed = Convert.ToDouble (Console.ReadLine());
 
     Console.WriteLine("Введите расстояние между друзьями в начале движения (м)");
-    string s = Console.ReadLine();
-    double distance = Convert.ToDouble (s);
+    double distance = Convert.ToDouble (Console.ReadLine());
 
     Console.WriteLine("Введите расстояние между друзьями при их встрече (м)");
-    string s_min = Console.ReadLine();
-    double distance_min = Convert.ToDouble (s_min);
+    double distance_min = Convert.ToDouble (Console.ReadLine());
 
 double overall_speed_dog_first_friend = first_friend_speed + dog_speed;
 
 double overall_speed_dog_second_friend = second_friend_speed + dog_speed;
 
 double count = 0;
-
-double time = 0;
 
 while (distance > distance_min)
 {

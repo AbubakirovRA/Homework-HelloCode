@@ -16,47 +16,68 @@ if (condition.ToLower() == "y")
 {
     Console.WriteLine("Здорово! Приступим.");
 
-    Console.WriteLine("Введите скорость движения первого друга (м/сек)");
-    double first_friend_speed = Convert.ToDouble (Console.ReadLine());
-
-    Console.WriteLine("Введите скорость движения второго друга (м/сек)");
-    double second_friend_speed = Convert.ToDouble (Console.ReadLine());
-
-    Console.WriteLine("Введите скорость движения их собаки (м/сек)");
-    double dog_speed = Convert.ToDouble (Console.ReadLine());
-
-    Console.WriteLine("Введите расстояние между друзьями в начале движения (м)");
-    double distance = Convert.ToDouble (Console.ReadLine());
-
-    Console.WriteLine("Введите расстояние между друзьями при их встрече (м)");
-    double distance_min = Convert.ToDouble (Console.ReadLine());
-
-double overall_speed_dog_first_friend = first_friend_speed + dog_speed;
-
-double overall_speed_dog_second_friend = second_friend_speed + dog_speed;
-
-double count = 0;
-
-while (distance > distance_min)
-{
-    if (count % 2 != 0)
+    while (true)
     {
-        distance = distance - (first_friend_speed + second_friend_speed) * (distance / overall_speed_dog_first_friend);
+        Console.WriteLine("Введите скорость движения первого друга (м/сек)");
+        if (double.TryParse((Console.ReadLine()), out double first_friend_speed)) 
+            while (true)
+            {
+                Console.WriteLine("Введите скорость движения второго друга (м/сек)");
+                if (double.TryParse((Console.ReadLine()), out double second_friend_speed))
+                    while (true)
+                    {
+                        Console.WriteLine("Введите скорость движения их собаки (м/сек)");
+                        if (double.TryParse((Console.ReadLine()), out double dog_speed))
+                            while (true)
+                            {
+                                Console.WriteLine("Введите расстояние между друзьями в начале движения (м)");
+                                if (double.TryParse((Console.ReadLine()), out double distance))
+                                    while (true)
+                                    {
+                                        Console.WriteLine("Введите расстояние между друзьями при их встрече (м)");
+                                        if (double.TryParse((Console.ReadLine()), out double distance_min))
+
+                                        {
+                                            int count = 0;
+
+                                            while (distance > distance_min)
+                                            {
+                                                if (count % 2 != 0)
+                                                {
+                                                    distance = distance - (first_friend_speed + second_friend_speed) * (distance / (first_friend_speed + dog_speed));
+                                                }
+
+                                                else
+                                                {
+                                                    distance = distance - (first_friend_speed + second_friend_speed) * (distance / (second_friend_speed + dog_speed));
+                                                }
+
+                                                count++;
+
+                                            }
+
+                                            Console.WriteLine($"Ответ: собака сбегала от одного друга ко второму  {count} раз");
+                                            
+                                        }
+                                        Console.WriteLine("Не удалось распознать число, попробуйте еще раз.");
+                                        
+                                    }
+                                Console.WriteLine("Не удалось распознать число, попробуйте еще раз.");
+                                
+                            }
+                        Console.WriteLine("Не удалось распознать число, попробуйте еще раз.");
+                        
+                    }
+                Console.WriteLine("Не удалось распознать число, попробуйте еще раз.");
+                
+            }
+        Console.WriteLine("Не удалось распознать число, попробуйте еще раз.");
+       
     }
 
-    else
-    {
-        distance = distance - (first_friend_speed + second_friend_speed) * (distance / overall_speed_dog_second_friend);
-    }
-
-    count++;
-
-}
-Console.WriteLine($"Ответ: собака сбегала от одного друга ко второму  {count} раз");
 }
 
 else
 {
     Console.WriteLine("Завершаю работу.");
 }
-

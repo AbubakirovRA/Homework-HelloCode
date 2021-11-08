@@ -8,24 +8,34 @@ double squareNumber(double arg)
 // Console.WriteLine($"Квадрат введенного числа равен {squareNumber(UserDouble())}");
 
 // 1. По двум заданным числам проверять является ли первое квадратом второго
-// void Test(double arg1, double arg2)
+// int Test(double arg1, double arg2)
 // {
-//     if (arg1 == squareNumber(arg2)) Console.WriteLine("Первое число является квадратом второго");
-//     else Console.WriteLine("Первое число не является квадратом второго");
+//     int flag = 0;
+//     if (arg1 == squareNumber(arg2)) flag = 1; //Console.WriteLine("Первое число является квадратом второго");
+//     else flag = 2; //Console.WriteLine("Первое число не является квадратом второго");
+//     return flag;
 // }
+
+// bool Test(double arg1, double arg2)
+// {
+//     return arg1 == squareNumber(arg2);// возвращается логическое значение true или false
+// }
+
 // Console.WriteLine("Введите первое число");
 // double arg1 = UserDouble();
 // Console.WriteLine("Введите второе число");
 // double arg2 = UserDouble();
 // Console.WriteLine($"Введено {arg1} и {arg2}");
-// Test(arg1, arg2);
+
+// if (Test(arg1, arg2)) Console.WriteLine("Первое число является квадратом второго");// Если в конструкции if-else используются логические условия,
+// else Console.WriteLine("Первое число не является квадратом второго"); // то достаточно после if поставить условие, возвращающее true-значение, а после else значение false
 
 // 2. Даны два числа. Показать большее и меньшее число
-// void Test1(double arg1, double arg2)
+// bool Test1(double arg1, double arg2)
 // {
-//     if (arg1 > arg2) Console.WriteLine($"Большее число - {arg1}, меньшее число {arg2}");
-//     else Console.WriteLine($"Большее число - {arg2}, меньшее число {arg1}");
+//     return arg1 > arg2;
 // }
+
 // Console.WriteLine("Введите первое число");
 // double arg1 = UserDouble();
 // Console.WriteLine("Введите второе число");
@@ -33,28 +43,100 @@ double squareNumber(double arg)
 // Console.WriteLine($"Введено {arg1} и {arg2}");
 // Test1(arg1, arg2);
 
+// if (Test1(arg1, arg2)) Console.WriteLine($"Большее число - {arg1}, меньшее число {arg2}");
+// else Console.WriteLine($"Большее число - {arg2}, меньшее число {arg1}");
+
 // 3. По заданному номеру дня недели вывести его название
-string Test2()
-{
-    int arg;
-    do
-    {
-        arg = 0;
-        Console.WriteLine("Введите день недели (число от 1 до 7)");
-        arg = Convert.ToInt32(UserInteger());
-    }
-    while (arg > 7);
-    Console.WriteLine($"Введено {arg}");
-    DateTime someDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, arg);
-    string day = Convert.ToString(someDate.DayOfWeek);
-    return day;
-}
+// string Test2()
+// {
+//     int arg;
+//     do
+//     {
+//         arg = 0;
+//         Console.WriteLine("Введите день недели (число от 1 до 7)");
+//         arg = Convert.ToInt32(UserInteger());
+//     }
+//     while (arg > 7);
+//     Console.WriteLine($"Введено {arg}");
+//     DateTime someDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, arg);
+//     string day = Convert.ToString(someDate.DayOfWeek);
+//     return day;
+// }
 
-Console.WriteLine(Test2());
+// Console.WriteLine(Test2());
 
+// string WeekDay(int current)
+// {
+//     string[] week = {"Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"};
+//     return week[current-1];
+// }
+// Console.WriteLine("Сегодня " + WeekDay(3));
 
 // 4. Найти максимальное из трех чисел
+// void FillArray(int[] collection) // Объявляем метод FillArray, который будет заполнять массивы 
+// {
+//     int length = collection.Length; //присваиваем переменной length значение, соответствующее количеству
+//                                     //элементов в аргументе collection
+//     int index = 0;                  //устанавливаем счетчик index в нуль
+//     while (index < length)          //запускаем заполнение объявляя цикл до значения переменной length
+//     {                                                           // тело цикла
+//         Console.WriteLine($"Введите {index} элемент");
+//         collection[index] = Convert.ToInt32(UserInteger());    //заполняем аргумент collection числами                          
+//         Console.Clear();
+//         index++;                                            //увеличиваем счетчик на 1
+//     }                                                           //тело цикла
+// }
+
+// void PrintArray(int[] col)      // этот метод отвечает за вывод на экран содержимого массивов
+// {
+//     int count = col.Length;
+//     int position = 0;
+//     while (position < count)
+//     {
+//         Console.Write($"{col[position]} ");
+//         position++;
+//     }
+//     Console.WriteLine();
+// }
+
+// int Compare(int[] array)
+// {
+//     for (int i = 0; i < array.Length - 1; i++)
+//     {
+//         int max = array[i];
+//         if (array[i+1]>m
+
+//     }
+//     return max;
+// }
+// // ТЕЛО ПРОГРАММЫ
+// Console.Clear();
+// Console.WriteLine("Сколько чисел будем сравнивать?");
+// int[] A = new int[Convert.ToInt32(UserInteger())];
+// FillArray(A);
+// Console.WriteLine("Введены числа:");
+// PrintArray(A);
+
+// int Max(int a, int b, int c)
+// {
+//     int max = a;
+//     if (b > max) max = b;
+//     if (c > max) max = c;
+//     return max;
+// }
+// Console.WriteLine($"Максимальное число {Max(15, 9, 14)}");
+
 // 5. Написать программу вычисления значения функции y=f(a)
+double Sinus()
+{
+    Console.WriteLine("Введите значение а");
+    string A = Console.ReadLine();
+    double a = double.Parse(A);
+    return Math.Sin(a);
+}
+
+Console.WriteLine(Sinus()); 
+
 // 6. Выяснить является ли число чётным
 // 7. Показать числа от -N до N
 // 8. Показать четные числа от 1 до N

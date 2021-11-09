@@ -16,12 +16,13 @@ double squareNumber(double arg)
 //     return flag;
 // }
 
-// bool Test(double arg1, double arg2)
-// {
-//     return arg1 == squareNumber(arg2);// возвращается логическое значение true или false
-// }
+bool Test(double arg1, double arg2)
+{
+    return arg1 == squareNumber(arg2);// возвращается логическое значение true или false
+}
 
 // Console.WriteLine("Введите первое число");
+
 // double arg1 = UserDouble();
 // Console.WriteLine("Введите второе число");
 // double arg2 = UserDouble();
@@ -47,23 +48,23 @@ double squareNumber(double arg)
 // else Console.WriteLine($"Большее число - {arg2}, меньшее число {arg1}");
 
 // 3. По заданному номеру дня недели вывести его название
-// string Test2()
-// {
-//     int arg;
-//     do
-//     {
-//         arg = 0;
-//         Console.WriteLine("Введите день недели (число от 1 до 7)");
-//         arg = Convert.ToInt32(UserInteger());
-//     }
-//     while (arg > 7);
-//     Console.WriteLine($"Введено {arg}");
-//     DateTime someDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, arg);
-//     string day = Convert.ToString(someDate.DayOfWeek);
-//     return day;
-// }
+string WeekDay() // метод, возвращающий имя дня недели, в зависимости от введенного номера дня недели
+{
+    int arg;
+    do
+    {
+        arg = 0;
+        Console.WriteLine("Введите день недели (число от 1 до 7)");
+        arg = Convert.ToInt32(UserNatural());
+    }
+    while (arg > 7);
+    Console.WriteLine($"Введено {arg}");
+    DateTime someDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, arg);
+    string day = Convert.ToString(someDate.DayOfWeek);
+    return day;
+}
 
-// Console.WriteLine(Test2());
+// Console.WriteLine(WeekDay());
 
 // string WeekDay(int current)
 // {
@@ -73,49 +74,49 @@ double squareNumber(double arg)
 // Console.WriteLine("Сегодня " + WeekDay(3));
 
 // 4. Найти максимальное из трех чисел
-// void FillArray(int[] collection) // Объявляем метод FillArray, который будет заполнять массивы 
-// {
-//     int length = collection.Length; //присваиваем переменной length значение, соответствующее количеству
-//                                     //элементов в аргументе collection
-//     int index = 0;                  //устанавливаем счетчик index в нуль
-//     while (index < length)          //запускаем заполнение объявляя цикл до значения переменной length
-//     {                                                           // тело цикла
-//         Console.WriteLine($"Введите {index} элемент");
-//         collection[index] = Convert.ToInt32(UserInteger());    //заполняем аргумент collection числами                          
-//         Console.Clear();
-//         index++;                                            //увеличиваем счетчик на 1
-//     }                                                           //тело цикла
-// }
+void FillArray(double[] collection) // Объявляем метод FillArray, который будет заполнять массивы 
+{
+    int length = collection.Length; //присваиваем переменной length значение, соответствующее количеству
+                                    //элементов в аргументе collection
+    int index = 0;                  //устанавливаем счетчик index в нуль
+    while (index < length)          //запускаем заполнение объявляя цикл до значения переменной length
+    {                                                        // тело цикла
+        Console.WriteLine($"Введите {index} элемент");
+        collection[index] = Convert.ToDouble(UserDouble());  //заполняем аргумент collection числами                          
+        Console.Clear();
+        index++;                                             //увеличиваем инкремент
+    }
+}
 
-// void PrintArray(int[] col)      // этот метод отвечает за вывод на экран содержимого массивов
-// {
-//     int count = col.Length;
-//     int position = 0;
-//     while (position < count)
-//     {
-//         Console.Write($"{col[position]} ");
-//         position++;
-//     }
-//     Console.WriteLine();
-// }
+void PrintArray(double[] col)      // этот метод отвечает за вывод на экран содержимого массивов
+{
+    int count = col.Length;
+    int position = 0;
+    while (position < count)
+    {
+        Console.Write($"{col[position]} ");
+        position++;
+    }
+    Console.WriteLine();
+}
 
-// int Compare(int[] array)
-// {
-//     for (int i = 0; i < array.Length - 1; i++)
-//     {
-//         int max = array[i];
-//         if (array[i+1]>m
-
-//     }
-//     return max;
-// }
-// // ТЕЛО ПРОГРАММЫ
+double Compare(double[] array) // этот  метод отвечает за нахождение максимального числа во введенном аргументе
+{
+    double max = array[0];
+    for (int i = 0; i < array.Length; i++)
+    {
+        if (array[i] > max) max = array[i];
+    }
+    return max;
+}
+// ТЕЛО ПРОГРАММЫ
 // Console.Clear();
 // Console.WriteLine("Сколько чисел будем сравнивать?");
-// int[] A = new int[Convert.ToInt32(UserInteger())];
+// double[] A = new double[UserNatural()];
 // FillArray(A);
 // Console.WriteLine("Введены числа:");
 // PrintArray(A);
+// Console.WriteLine($"Максимальное число {Compare(A)}");
 
 // int Max(int a, int b, int c)
 // {
@@ -124,7 +125,8 @@ double squareNumber(double arg)
 //     if (c > max) max = c;
 //     return max;
 // }
-// Console.WriteLine($"Максимальное число {Max(15, 9, 14)}");
+// Console.WriteLine($"Максимальное число {Max(15, 9, 11)}");
+
 
 // 5. Написать программу вычисления значения функции y=f(a)
 double Sinus()
@@ -135,10 +137,50 @@ double Sinus()
     return Math.Sin(a);
 }
 
-Console.WriteLine(Sinus()); 
+// Console.WriteLine(Sinus()); 
 
 // 6. Выяснить является ли число чётным
+
+// bool Evan(double arg)
+// {
+//     return arg % 2 == 0;
+// }
+
+// double arg = UserDouble();
+// Evan(arg);
+
+// if (Evan(arg)) Console.WriteLine($"Число {arg} - четное");
+// else Console.WriteLine($"Число {arg} - нечетное");
+
 // 7. Показать числа от -N до N
+
+void Test1(int arg1, int[] col)
+{
+    int length = 2 * arg1 - 1;
+    int arg2 = -arg1;
+    for (int i = 0; i < length; i++)
+    {
+        arg2 = arg2 + 1;
+        col[i] = arg2;
+    }
+}
+
+Console.Clear();
+Console.WriteLine("Принимаем, что в задаче рассматривается числовой отрезок для целых чисел, т.к. ряд вещественных бесконечен");
+Console.WriteLine("Принимаем, что числа -N и N не входят в указанный диапазон, т.к. указано 'от' и 'до' ");
+WaitUser();
+
+Console.WriteLine("Введите N");
+int arg1 = UserInteger();
+
+Console.WriteLine($"Введено {arg1}");
+WaitUser();
+
+int[] col = new int[2 * arg1 - 1];
+Test1(arg1, col);
+
+PrintIntArray(col);
+
 // 8. Показать четные числа от 1 до N
 // 9. Показать последнюю цифру трёхзначного числа
 // 10. Показать вторую цифру трёхзначного числа
@@ -233,6 +275,27 @@ int UserInteger() //Метод ожидающий ввода целочисле�
         Console.WriteLine("Введите целочисленное значение");
         if (int.TryParse((Console.ReadLine()), out int number)) //извлекаем из строки ввода символы и пытаемся присвоить им вещественный тип числа
         {
+            integerNumber = number;  //если получилось, запоминаем число
+            Console.Clear();
+            break;          //очищаем экран и выходим из цикла
+        }
+        else
+        {
+            Console.WriteLine("Не удалось распознать число, попробуйте еще раз."); //если не получилось, запрашиваем по новой
+        }
+    }
+    return integerNumber;        // возвращаем значение метода (функции) в программу
+}
+
+
+int UserNatural() //Метод ожидающий ввода целочисленного числа, осуществляющий проверку ввода
+{
+    int integerNumber = 0; //переменная integerNumber, в данном случае, хранит число, которое ввел пользователь
+    while (true)
+    {
+        Console.WriteLine("Введите целочисленное значение");
+        if (int.TryParse((Console.ReadLine()), out int number)) //извлекаем из строки ввода символы и пытаемся присвоить им вещественный тип числа
+        {
             if (number > 0)
             {
                 integerNumber = number;  //если получилось, запоминаем число
@@ -246,4 +309,17 @@ int UserInteger() //Метод ожидающий ввода целочисле�
         }
     }
     return integerNumber;        // возвращаем значение метода (функции) в программу
+}
+
+
+void PrintIntArray(int[] col)      // этот метод отвечает за вывод на экран содержимого массивов
+{
+    int count = col.Length;
+    int position = 0;
+    while (position < count)
+    {
+        Console.Write($"{col[position]} ");
+        position++;
+    }
+    Console.WriteLine();
 }

@@ -141,48 +141,94 @@ double Sinus()
 
 // 6. Выяснить является ли число чётным
 
-// bool Evan(double arg)
-// {
-//     return arg % 2 == 0;
-// }
+bool even(double arg)
+{
+    return arg % 2 == 0;
+}
 
 // double arg = UserDouble();
-// Evan(arg);
+// even(arg);
 
-// if (Evan(arg)) Console.WriteLine($"Число {arg} - четное");
+// if (even(arg)) Console.WriteLine($"Число {arg} - четное");
 // else Console.WriteLine($"Число {arg} - нечетное");
 
 // 7. Показать числа от -N до N
 
-void Test1(int arg1, int[] col)
-{
-    int length = 2 * arg1 - 1;
-    int arg2 = -arg1;
-    for (int i = 0; i < length; i++)
-    {
-        arg2 = arg2 + 1;
-        col[i] = arg2;
-    }
-}
+// void Test1(int arg1, int[] col)
+// {
+//     int length = 2 * arg1 - 1;
+//     int arg2 = -arg1;
+//     for (int i = 0; i < length; i++)
+//     {
+//         arg2 = arg2 + 1;
+//         col[i] = arg2;
+//     }
+// }
 
-Console.Clear();
-Console.WriteLine("Принимаем, что в задаче рассматривается числовой отрезок для целых чисел, т.к. ряд вещественных бесконечен");
-Console.WriteLine("Принимаем, что числа -N и N не входят в указанный диапазон, т.к. указано 'от' и 'до' ");
-WaitUser();
+// Console.Clear();
+// Console.WriteLine("Принимаем, что в задаче рассматривается числовой отрезок для целых чисел, т.к. ряд вещественных бесконечен");
+// Console.WriteLine("Принимаем, что числа -N и N не входят в указанный диапазон, т.к. указано 'от' и 'до' ");
+// WaitUser();
 
-Console.WriteLine("Введите N");
-int arg1 = UserInteger();
+// Console.WriteLine("Введите N");
+// int arg1 = UserInteger();
 
-Console.WriteLine($"Введено {arg1}");
-WaitUser();
+// Console.WriteLine($"Введено {arg1}");
+// WaitUser();
 
-int[] col = new int[2 * arg1 - 1];
-Test1(arg1, col);
+// int[] col = new int[2 * arg1 - 1];
+// Test1(arg1, col);
 
-PrintIntArray(col);
+// PrintIntArray(col);
 
 // 8. Показать четные числа от 1 до N
+
+// int[] TestEven(int arg)
+// {
+//     int length = arg / 2;
+//     int[] Even = new int[arg / 2];
+//     int j = 1;
+//     for (int i = 0; i < length; i++)
+//     {
+//         Even[i] = j++ * 2;
+//     }
+//     return Even;
+// }
+
+// Console.Clear();
+// Console.WriteLine("Принимаем, что в задаче рассматривается числовой отрезок для натуральных (>0) чисел, т.к. ряд вещественных бесконечен");
+// WaitUser();
+
+// Console.WriteLine("Введите N");
+// int arg = UserNatural();
+// Console.WriteLine($"Введено {arg}");
+// even(arg);
+// if (even(arg))
+// {
+//     if (arg > 2) PrintIntArray(TestEven(arg - 1));
+// }
+// else
+// {
+//     PrintIntArray(TestEven(arg));
+// }
+
 // 9. Показать последнюю цифру трёхзначного числа
+
+Console.Clear();
+
+Console.WriteLine("Введите трехзначное число");
+string text = Console.ReadLine();
+int length=text.Length;
+if (length == 3)
+{
+char ch = text[2];
+Console.WriteLine($"Последняя цифра введенного числа - {ch}");
+}
+else
+{
+    Console.WriteLine("Введено НЕ трехзначное число!");
+}
+
 // 10. Показать вторую цифру трёхзначного числа
 // 11. Дано число из отрезка [10, 99]. Показать наибольшую цифру числа
 // 12. Удалить вторую цифру трёхзначного числа

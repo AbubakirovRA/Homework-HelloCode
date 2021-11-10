@@ -74,6 +74,16 @@ string WeekDay() // метод, возвращающий имя дня неде�
 // Console.WriteLine("Сегодня " + WeekDay(3));
 
 // 4. Найти максимальное из трех чисел
+double Compare(double[] array) // этот  метод отвечает за нахождение максимального числа во введенном аргументе
+{
+    double max = array[0];
+    for (int i = 0; i < array.Length; i++)
+    {
+        if (array[i] > max) max = array[i];
+    }
+    return max;
+}
+
 void FillArray(double[] collection) // Объявляем метод FillArray, который будет заполнять массивы 
 {
     int length = collection.Length; //присваиваем переменной length значение, соответствующее количеству
@@ -100,15 +110,6 @@ void PrintArray(double[] col)      // этот метод отвечает за 
     Console.WriteLine();
 }
 
-double Compare(double[] array) // этот  метод отвечает за нахождение максимального числа во введенном аргументе
-{
-    double max = array[0];
-    for (int i = 0; i < array.Length; i++)
-    {
-        if (array[i] > max) max = array[i];
-    }
-    return max;
-}
 // ТЕЛО ПРОГРАММЫ
 // Console.Clear();
 // Console.WriteLine("Сколько чисел будем сравнивать?");
@@ -154,7 +155,7 @@ bool even(double arg)
 
 // 7. Показать числа от -N до N
 
-// void Test1(int arg1, int[] col)
+// void Test7(int arg1, int[] col)
 // {
 //     int length = 2 * arg1 - 1;
 //     int arg2 = -arg1;
@@ -177,7 +178,7 @@ bool even(double arg)
 // WaitUser();
 
 // int[] col = new int[2 * arg1 - 1];
-// Test1(arg1, col);
+// Test7(arg1, col);
 
 // PrintIntArray(col);
 
@@ -214,26 +215,112 @@ bool even(double arg)
 
 // 9. Показать последнюю цифру трёхзначного числа
 
-Console.Clear();
+// Console.Clear();
+// ПЕРВОЕ РЕШЕНИЕ
+// int num = 456;
+// int Test9(int arg)
+// {
+//     return arg % 10;
+// }
+// Console.WriteLine(Test9(num));
 
-Console.WriteLine("Введите трехзначное число");
-string text = Console.ReadLine();
-int length=text.Length;
-if (length == 3)
-{
-char ch = text[2];
-Console.WriteLine($"Последняя цифра введенного числа - {ch}");
-}
-else
-{
-    Console.WriteLine("Введено НЕ трехзначное число!");
-}
+// ВТОРОЕ РЕШЕНИЕ
+// Console.WriteLine("Введите трехзначное число");
+// string text = Console.ReadLine();
+// int length=text.Length;
+// if (length == 3)
+// {
+// char ch = text[2];
+// Console.WriteLine($"Последняя цифра введенного числа - {ch}");
+// }
+// else
+// {
+//     Console.WriteLine("Введено НЕ трехзначное число!");
+// }
 
 // 10. Показать вторую цифру трёхзначного числа
+// ПЕРВОЕ РЕШЕНИЕ
+// int Test10(int arg)
+// {
+//     return (arg / 10) % 10;
+// }
+
+// int num = 356;
+// Console.WriteLine(Test10(num));
+
+// ВТОРОЕ РЕШЕНИЕ
+// Console.Clear();
+
+// Console.WriteLine("Введите трехзначное число");
+// string text = Console.ReadLine();
+// int length = text.Length;
+// if (length == 3)
+// {
+//     char ch = text[1];
+//     Console.WriteLine($"Вторая цифра введенного числа - {ch}");
+// }
+// else
+// {
+//     Console.WriteLine("Введено НЕ трехзначное число!");
+// }
+
 // 11. Дано число из отрезка [10, 99]. Показать наибольшую цифру числа
+
+// bool Test11(int arg1, int arg2)
+// {
+//     return arg1 > arg2;
+// }
+
+// int num = new Random().Next(9, 100);
+// Console.Clear();
+// Console.WriteLine($"Случайное число из диапазона [10, 99]: {num}");
+// int arg1 = num % 10;
+// int arg2 = num / 10;
+
+// if (Test11(arg1, arg2)) Console.WriteLine($"Наибольшее: {arg1}");
+// else Console.WriteLine($"Наибольшее: {arg2}");
+
 // 12. Удалить вторую цифру трёхзначного числа
+
+// int Test12(int arg)
+// {
+//     return 10 * (arg / 100) + arg % 10;
+// }
+
+// int num = new Random().Next(99, 1000);
+// Console.Clear();
+// Console.WriteLine($"Случайное число из диапазона [100, 999]: {num}");
+// Console.WriteLine($"Удаляем вторую цифру: {Test12(num)}");
+
 // 13. Выяснить, кратно ли число заданному, если нет, вывести остаток.
+
+// int Test13(int arg1, int arg2)
+// {
+//     return arg1 % arg2;
+// }
+
+// int num1 = new Random().Next(99, 1000);
+// int num2 = 10; //new Random().Next(0, 100);
+// Console.Clear();
+// Console.WriteLine($"Проверка, кратно ли {num2}-и число {num1}");
+
+// if (Test13(num1, num2)==0) Console.WriteLine("Кратно");
+// else Console.WriteLine($"Не кратно, остаток: {Test13(num1, num2)}");
+
 // 14. Найти третью цифру числа или сообщить, что её нет
+
+// bool Test14(int arg)
+// {
+//     return arg / 100 < 1;
+// }
+
+// int num = new Random().Next(-1000000, 1000000);
+// Console.Clear();
+// Console.WriteLine($"Проверка, есть ли третья цифра (разряд сотен) в числе {num}");
+// num = Math.Abs(num)/100;
+
+// if (Test14(num)) Console.WriteLine("Нет");
+// else Console.WriteLine($"Есть: {(num % 10)}");
 
 // Почувствуй себя джуном
 //------------------------

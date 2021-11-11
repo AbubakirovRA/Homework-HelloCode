@@ -138,6 +138,8 @@ void PrintArray(double[] col)      // этот метод отвечает за 
 // PrintArray(A);
 // Console.WriteLine($"Максимальное число {Compare(A)}");
 
+
+//Альтернативное решение от коллективного разума
 // int Max(int a, int b, int c)
 // {
 //     int max = a;
@@ -351,9 +353,9 @@ bool even(double arg)
 
 // 13. Выяснить, кратно ли число заданному, если нет, вывести остаток.
 
-// int Test13(int arg1, int arg2)
+// bool Test13(int arg1, int arg2)
 // {
-//     return arg1 % arg2;
+//     return arg1 % arg2 == 0;
 // }
 
 // int num1 = new Random().Next(99, 1000);
@@ -365,7 +367,17 @@ bool even(double arg)
 // else Console.WriteLine($"Не кратно, остаток: {Test13(num1, num2)}");
 
 
+// bool Multiple (int x, int x1)
+// {
+//         return x % x1 == 0;
+// }
 
+// int x = 47;
+// int x1= 15;
+// Multiple(x, x1);
+
+// if (Multiple(x, x1)) Console.WriteLine($"Число кратно заданному");
+// else Console.WriteLine($"Число не кратно заданному");
 
 
 
@@ -391,7 +403,7 @@ bool even(double arg)
 // ВСПОМОГАТЕЛЬНЫЕ МЕТОДЫ
 
 //метод (процедура) ожидание пользователя, для того, чтобы дать прочитать условие
-void WaitUser() 
+void WaitUser()
 {
     Console.WriteLine("Нажмите ENTER, когда будете готовы продолжить");
     while (true)
@@ -407,7 +419,7 @@ void WaitUser()
 
 
 //Метод ожидающий ввода вещественного числа и осуществляющий проверку ввода
-double UserDouble() 
+double UserDouble()
 {
     double Number = 0; //переменная Number, хранит вещественное число, которе вводит пользователь
     while (true)
@@ -431,7 +443,7 @@ double UserDouble()
 
 
 //Метод ожидающий ввода целочисленного числа, осуществляющий проверку ввода
-int UserInteger() 
+int UserInteger()
 {
     int integerNumber = 0; //переменная integerNumber, в данном случае, хранит число, которое ввел пользователь
     while (true)
@@ -455,7 +467,7 @@ int UserInteger()
 
 
 //Метод ожидающий ввода целочисленного числа, осуществляющий проверку ввода
-int UserNatural() 
+int UserNatural()
 {
     int integerNumber = 0; //переменная integerNumber, в данном случае, хранит число, которое ввел пользователь
     while (true)
@@ -515,13 +527,117 @@ void PrintIntArray(int[] col)
 // Почувствуй себя джуном
 //------------------------
 // 15. Дано число. Проверить кратно ли оно 7 и 23
+// bool Check15(int arg, int arg1)
+// {
+//     return arg % arg1 == 0;
+// }
+
+// int num = 46;
+// if (Check15(num, 7)) Console.WriteLine($"Число {num} кратно 7");
+// else Console.WriteLine($"Число {num} не кратно 7");
+// if (Check15(num, 23)) Console.WriteLine($"Число {num} кратно 23");
+// else Console.WriteLine($"Число {num} не кратно 23");
+
+
+
+
+
+
 // 16. Дано число обозначающее день недели. Выяснить является номер недели выходным днём
+// bool Day(int arg)
+// {
+//     return arg < 6;
+// }
+// int day=6;
+// if (Day(day)) Console.WriteLine("Рабочий день");
+// else Console.WriteLine("Выходной день");
+
+
+
+
+
 // 17. По двум заданным числам проверять является ли одно квадратом другого
+// bool Test17(int arg1, int arg2)
+// {
+//     return arg1 == squareNumber(arg2);// возвращается логическое значение true или false
+// }
+
+// int arg1=8;
+// int arg2=2;
+// if (Test17(arg1, arg2)) Console.WriteLine("Первое число является квадратом второго");
+// else Console.WriteLine("Первое число не является квадратом второго");
+
+
+
+
 // 18. Проверить истинность утверждения ¬(X ⋁ Y) = ¬X ⋀ ¬Y
+
+
+
+
+
+
 // 19. Определить номер четверти плоскости, в которой находится точка с координатами Х и У, причем X ≠ 0 и Y ≠ 0
+// int Quarter(int x, int y)
+// {
+//     int quarter = 0;
+//     if (x > 0 && y > 0) quarter = 1;
+//     if (x > 0 && y < 0) quarter = 2;
+//     if (x < 0 && y < 0) quarter = 3;
+//     if (x < 0 && y > 0) quarter = 4;
+//     return quarter;
+// }
+
+// int x = 1;
+// int y = -2;
+// Console.Clear();
+// Console.WriteLine($"Числа {x} и {y} принадлежат к {Quarter(x, y)}-й четверти");
+
+
+
+
 // 20. Ввести номер четверти, показать диапазоны для возможных координат
+
+
+
+
 // 21. Программа проверяет пятизначное число на палиндромом.
+bool Palindrom(int arg)
+{
+    bool result = false;
+    int i = 0;
+    int j = 5;
+    int[] mass = { 0, 0, 0, 0, 0 };
+    for (i = 4; i >= 0; i--)
+    {
+        if (arg < 10) mass[i] = arg;
+        else mass[i] = arg % 10;
+        arg = arg / 10;
+    }
+
+    for (i = 0; i <= 2; i++)
+    {
+        j = j - 1;
+        if (mass[i] != mass[j])
+        {
+            result = false;
+            i = 2;
+            break;
+        }
+        else result = true;
+    }
+    return result;
+}
+int num = 12361;
+if (Palindrom(num)) Console.WriteLine("Палиндром");
+else Console.WriteLine("Не палиндром");
+
+
 // 22. Найти расстояние между точками в пространстве 2D/3D
+
+
+
+
 
 // Почувствуй себя мидлом
 //------------------------

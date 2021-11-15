@@ -117,17 +117,17 @@ void FillArray(double[] collection) // Объявляем метод FillArray, 
     }
 }
 
-void PrintArray(double[] col)      // этот метод отвечает за вывод на экран содержимого массивов
-{
-    int count = col.Length;
-    int position = 0;
-    while (position < count)
-    {
-        Console.Write($"{col[position]} ");
-        position++;
-    }
-    Console.WriteLine();
-}
+// void PrintArray(double[] col)      // этот метод отвечает за вывод на экран содержимого массивов
+// {
+//     int count = col.Length;
+//     int position = 0;
+//     while (position < count)
+//     {
+//         Console.Write($"{col[position]} ");
+//         position++;
+//     }
+//     Console.WriteLine();
+// }
 
 // ТЕЛО ПРОГРАММЫ
 // Console.Clear();
@@ -493,17 +493,17 @@ int UserNatural()
 
 
 // этот метод отвечает за вывод на экран содержимого массивов
-void PrintIntArray(int[] col)
-{
-    int count = col.Length;
-    int position = 0;
-    while (position < count)
-    {
-        Console.Write($"{col[position]} ");
-        position++;
-    }
-    Console.WriteLine();
-}
+// void PrintIntArray(int[] col)
+// {
+//     int count = col.Length;
+//     int position = 0;
+//     while (position < count)
+//     {
+//         Console.Write($"{col[position]} ");
+//         position++;
+//     }
+//     Console.WriteLine();
+// }
 
 
 
@@ -602,35 +602,35 @@ void PrintIntArray(int[] col)
 
 
 // 21. Программа проверяет пятизначное число на палиндромом.
-bool Palindrom(int arg)
-{
-    bool result = false;
-    int i = 0;
-    int j = 5;
-    int[] mass = { 0, 0, 0, 0, 0 };
-    for (i = 4; i >= 0; i--)
-    {
-        if (arg < 10) mass[i] = arg;
-        else mass[i] = arg % 10;
-        arg = arg / 10;
-    }
+// bool Palindrom(int arg)
+// {
+//     bool result = false;
+//     int i = 0;
+//     int j = 5;
+//     int[] mass = { 0, 0, 0, 0, 0 };
+//     for (i = 4; i >= 0; i--)
+//     {
+//         if (arg < 10) mass[i] = arg;
+//         else mass[i] = arg % 10;
+//         arg = arg / 10;
+//     }
 
-    for (i = 0; i <= 2; i++)
-    {
-        j = j - 1;
-        if (mass[i] != mass[j])
-        {
-            result = false;
-            i = 2;
-            break;
-        }
-        else result = true;
-    }
-    return result;
-}
-int num = 12361;
-if (Palindrom(num)) Console.WriteLine("Палиндром");
-else Console.WriteLine("Не палиндром");
+//     for (i = 0; i <= 2; i++)
+//     {
+//         j = j - 1;
+//         if (mass[i] != mass[j])
+//         {
+//             result = false;
+//             i = 2;
+//             break;
+//         }
+//         else result = true;
+//     }
+//     return result;
+// }
+// int num = 12361;
+// if (Palindrom(num)) Console.WriteLine("Палиндром");
+// else Console.WriteLine("Не палиндром");
 
 
 // 22. Найти расстояние между точками в пространстве 2D/3D
@@ -653,10 +653,115 @@ else Console.WriteLine("Не палиндром");
 // Почувствуй себя сеньором
 //--------------------------
 // 31. Задать массив из 8 элементов и вывести их на экран 
+
+// string PrintArray(int[] Array)
+// {
+//     string x = string.Empty;
+//     for(int i = 0; i < 8; i++)
+//     {
+//         x += $"{Array[i]} ";
+//     }
+//     return x;
+// }
+// int[] Array = {1, 4, 5, 3, 5, 7, 9, 3};
+// Console.WriteLine(PrintArray(Array));
+
 // 32. Задать массив из 8 элементов, заполненных нулями и единицами вывести их на экран 
+
+int [] CreateArray(int arg, int arg1, int arg2)
+    {
+        int [] array = new int [arg];
+        for( int i = 0; i <array.Length; i++) array[i] = new Random().Next(arg1,arg2);
+        return array;
+    }
+
+// Console.WriteLine(PrintArray(CreateArray(50, 0, 10)));
+
+
 // 33. Задать массив из 12 элементов, заполненных числами из [0,9]. Найти сумму положительных/отрицательных элементов массива
+
+int Summ(int [] Array)
+{
+    int sum = 0;
+    for( int i = 0; i <Array.Length; i++) sum += Array[i]; //sum = sum + Arrai[i]
+    return sum;
+}
+
+// Console.WriteLine(Summ(CreateArray(12, 0, 9)));
+
 // 34. Написать программу замену элементов массива на противоположные
+
+// void PrintIntArray(int[] col)
+// {
+//     int count = col.Length;
+//     int position = 0;
+//     while (position < count)
+//     {
+//         Console.Write($"{col[position]} ");
+//         position++;
+//     }
+    
+//     Console.WriteLine();
+// }
+
+
+// int [] CreateArray(int arg, int arg1, int arg2)
+//     {
+//         int [] array = new int [arg];
+//         for( int i = 0; i <array.Length; i++) array[i] = new Random().Next(arg1,arg2);
+//         PrintIntArray(array);
+//         return array;
+//     }
+
+
+// int[] Change(int[] arg)
+// {
+//     int[] mas = new int [arg.Length]; 
+//     for( int i = 0; i <arg.Length; i++) mas[i] = arg[i] * -1;
+//     return mas;
+// }
+// PrintIntArray(Change(CreateArray(10, -10, 10)));
+
 // 35. Определить, присутствует ли в заданном массиве, некоторое число 
+
+void PrintIntArray(int[] col)
+{
+    int count = col.Length;
+    int position = 0;
+    while (position < count)
+    {
+        Console.Write($"{col[position]} ");
+        position++;
+    }
+    
+    Console.WriteLine();
+}
+
+
+int [] CreateArray(int arg, int arg1, int arg2)
+    {
+        int [] array = new int [arg];
+        for( int i = 0; i <array.Length; i++) array[i] = new Random().Next(arg1,arg2);
+        PrintIntArray(array);
+        return array;
+    }
+
+bool FindNumber (int num, int [] array)
+{
+    
+    int j = 0;
+    while ( j < array.Length)
+    {
+        if(array[j] == num) 
+        {
+            Console.WriteLine(array[j]);
+            break;
+        }
+    }
+    return num == array[j];
+}
+
+
 // 36. Задать массив, заполнить случайными положительными трёхзначными числами. Показать количество нечетных\четных чисел
 // 37. В одномерном массиве из 123 чисел найти количество элементов из отрезка [10,99]
 // 38. Найти сумму чисел одномерного массива стоящих на нечетной позиции

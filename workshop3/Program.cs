@@ -644,7 +644,7 @@ bool Table()
     return res;
 }
 
-Console.WriteLine(Table());
+// Console.WriteLine(Table());
 
 
 
@@ -670,8 +670,44 @@ Console.WriteLine(Table());
 
 
 // 20. Ввести номер четверти, показать диапазоны для возможных координат
+(string, string) Limits(int arg)
+{
+    var t = ("", "");
+    if (arg == 1) t = ("X принадлежит диапазону вещественных чисел от 0 до + бесконечности", "Y принадлежит диапазону вещественных чисел от 0 до + бесконечности");
+    if (arg == 2) t = ("X принадлежит диапазону вещественных чисел от 0 до + бесконечности", "Y принадлежит диапазону вещественных чисел от 0 до - бесконечности");
+    if (arg == 3) t = ("X принадлежит диапазону вещественных чисел от 0 до - бесконечности", "Y принадлежит диапазону вещественных чисел от 0 до - бесконечности");
+    if (arg == 4) t = ("X принадлежит диапазону вещественных чисел от 0 до - бесконечности", "Y принадлежит диапазону вещественных чисел от 0 до + бесконечности");
+    return t;
+}
 
+int number;
+while (true)
+{
+    Console.WriteLine("Enter the Quarter number");
+    if (int.TryParse((Console.ReadLine()), out int num))
+    {
+        if (num > 0 && num <= 4)
+        {
+            number = num;
+            break;
+        }
+    }
+    else
+    {
+        Console.WriteLine("Enter the Quarter number");
+    }
+}
+Console.WriteLine(Limits(number));
 
+// (double, int) t1 = (4.5, 3);
+// Console.WriteLine($"Tuple with elements {t1.Item1} and {t1.Item2}.");
+// Console.WriteLine(t1.ToString());
+
+// var t = 
+// (1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
+// 11, 12, 13, 14, 15, 16, 17, 18,
+// 19, 20, 21, 22, 23, 24, 25, 26);
+// Console.WriteLine(t.Item26); 
 
 
 // 21. Программа проверяет пятизначное число на палиндромом.
@@ -741,22 +777,22 @@ Console.WriteLine(Table());
 
 // 32. Задать массив из 8 элементов, заполненных нулями и единицами вывести их на экран 
 
-int [] CreateArray(int arg, int arg1, int arg2)
-    {
-        int [] array = new int [arg];
-        for( int i = 0; i <array.Length; i++) array[i] = new Random().Next(arg1,arg2);
-        return array;
-    }
+// int [] CreateArray(int arg, int arg1, int arg2)
+//     {
+//         int [] array = new int [arg];
+//         for( int i = 0; i <array.Length; i++) array[i] = new Random().Next(arg1,arg2);
+//         return array;
+//     }
 
 // Console.WriteLine(PrintArray(CreateArray(50, 0, 10)));
 
 
 // 33. Задать массив из 12 элементов, заполненных числами из [0,9]. Найти сумму положительных/отрицательных элементов массива
 
-int Summ(int [] Array)
+int Summ(int[] Array)
 {
     int sum = 0;
-    for( int i = 0; i <Array.Length; i++) sum += Array[i]; //sum = sum + Arrai[i]
+    for (int i = 0; i < Array.Length; i++) sum += Array[i]; //sum = sum + Arrai[i]
     return sum;
 }
 
@@ -773,7 +809,7 @@ int Summ(int [] Array)
 //         Console.Write($"{col[position]} ");
 //         position++;
 //     }
-    
+
 //     Console.WriteLine();
 // }
 
@@ -806,26 +842,26 @@ void PrintIntArray(int[] col)
         Console.Write($"{col[position]} ");
         position++;
     }
-    
+
     Console.WriteLine();
 }
 
 
-int [] CreateArray(int arg, int arg1, int arg2)
-    {
-        int [] array = new int [arg];
-        for( int i = 0; i <array.Length; i++) array[i] = new Random().Next(arg1,arg2);
-        PrintIntArray(array);
-        return array;
-    }
-
-bool FindNumber (int num, int [] array)
+int[] CreateArray(int arg, int arg1, int arg2)
 {
-    
+    int[] array = new int[arg];
+    for (int i = 0; i < array.Length; i++) array[i] = new Random().Next(arg1, arg2);
+    PrintIntArray(array);
+    return array;
+}
+
+bool FindNumber(int num, int[] array)
+{
+
     int j = 0;
-    while ( j < array.Length)
+    while (j < array.Length)
     {
-        if(array[j] == num) 
+        if (array[j] == num)
         {
             Console.WriteLine(array[j]);
             break;

@@ -685,24 +685,24 @@ bool Table()
     return t;
 }
 
-int number;
-while (true)
-{
-    Console.WriteLine("Enter the Quarter number");
-    if (int.TryParse((Console.ReadLine()), out int num))
-    {
-        if (num > 0 && num <= 4)
-        {
-            number = num;
-            break;
-        }
-    }
-    else
-    {
-        Console.WriteLine("Enter the Quarter number");
-    }
-}
-Console.WriteLine(Limits(number));
+// int number;
+// while (true)
+// {
+//     Console.WriteLine("Enter the Quarter number");
+//     if (int.TryParse((Console.ReadLine()), out int num))
+//     {
+//         if (num > 0 && num <= 4)
+//         {
+//             number = num;
+//             break;
+//         }
+//     }
+//     else
+//     {
+//         Console.WriteLine("Enter the Quarter number");
+//     }
+// }
+// Console.WriteLine(Limits(number));
 
 // (double, int) t1 = (4.5, 3);
 // Console.WriteLine($"Tuple with elements {t1.Item1} and {t1.Item2}.");
@@ -756,13 +756,110 @@ Console.WriteLine(Limits(number));
 // Почувствуй себя мидлом
 //------------------------
 // 23. Показать таблицу квадратов чисел от 1 до N 
+// int Square(int arg)
+// {
+//     return (arg * arg);
+// }
+
+// int n = 100;
+// for (int i = 1; i <= n; i++)
+// {
+//     Console.WriteLine($"Square {i} = {Square(i)}");
+// }
+
+
 // 24. Найти кубы чисел от 1 до N
+
+// int Cubic(int arg)
+// {
+//     return (arg * arg * arg);
+// }
+
+// int n = 19;
+// for (int i = 1; i <= n; i++)
+// {
+//     Console.WriteLine($"Cubic {i} = {Cubic(i)}");
+// }
+
 // 25. Найти сумму чисел от 1 до А
+// int Summ(int arg)
+// {
+//     int summ = 0;
+//     for (int i = 1; i <= arg; i++) summ += i;
+//     return summ;
+// }
+
+// int a = 10;
+// Console.WriteLine(Summ(a));
+
 // 26. Возведите число А в натуральную степень B используя цикл
+// int Degree(int arg, int arg1)
+// {
+//     int num = arg;
+//     for (int i = 1; i < arg1; i++) num *= arg;
+//     return num;
+// }
+
+// int a = 2;
+// int b = 4;
+// Console.WriteLine(Degree(a, b));
+
 // 27. Определить количество цифр в числе
+// int Digits(int arg)
+// {
+//     int len=0;
+//     while (arg > 0)
+//     {
+//         arg /=10;
+//         len +=1;
+//     }
+// return len;
+// }
+
+// int num = 123546;
+// Console.WriteLine(Digits(num));
+
 // 28. Подсчитать сумму цифр в числе
+
+// int DigitsSum(int arg)
+// {
+//     int sum = 0;
+//     while (arg > 0)
+//     {
+//         sum += arg % 10;
+//         arg /= 10;
+//     }
+//     return sum;
+// }
+
+// int num = 123546789;
+// Console.WriteLine(DigitsSum(num));
+
 // 29. Написать программу вычисления произведения чисел от 1 до N
+
+// int WorkNum(int arg)
+// {
+//     int work = 1;
+//     for (int i = 1; i <= arg; i++) work *= i;
+//     return work;
+// }
+
+// int n = 5;
+// Console.WriteLine(WorkNum(n));
+
 // 30. Показать кубы чисел, заканчивающихся на четную цифру
+
+// int Cubic(int arg)
+// {
+//     return (arg * arg * arg);
+// }
+
+// int n = 19;
+// for (int i = 1; i <= n; i++)
+// {
+//     if (Cubic(i)%2==0) Console.WriteLine($"Cubic {i} = {Cubic(i)}");
+// }
+
 
 // Почувствуй себя сеньором
 //--------------------------
@@ -794,12 +891,12 @@ Console.WriteLine(Limits(number));
 
 // 33. Задать массив из 12 элементов, заполненных числами из [0,9]. Найти сумму положительных/отрицательных элементов массива
 
-int Summ(int[] Array)
-{
-    int sum = 0;
-    for (int i = 0; i < Array.Length; i++) sum += Array[i]; //sum = sum + Arrai[i]
-    return sum;
-}
+// int Summ(int[] Array)
+// {
+//     int sum = 0;
+//     for (int i = 0; i < Array.Length; i++) sum += Array[i]; //sum = sum + Arrai[i]
+//     return sum;
+// }
 
 // Console.WriteLine(Summ(CreateArray(12, 0, 9)));
 
@@ -838,45 +935,43 @@ int Summ(int[] Array)
 
 // 35. Определить, присутствует ли в заданном массиве, некоторое число 
 
-void PrintIntArray(int[] col)
-{
-    int count = col.Length;
-    int position = 0;
-    while (position < count)
-    {
-        Console.Write($"{col[position]} ");
-        position++;
-    }
+// void PrintIntArray(int[] col)
+// {
+//     int count = col.Length;
+//     int position = 0;
+//     while (position < count)
+//     {
+//         Console.Write($"{col[position]} ");
+//         position++;
+//     }
 
-    Console.WriteLine();
-}
+//     Console.WriteLine();
+// }
 
 
-int[] CreateArray(int arg, int arg1, int arg2)
-{
-    int[] array = new int[arg];
-    for (int i = 0; i < array.Length; i++) array[i] = new Random().Next(arg1, arg2);
-    PrintIntArray(array);
-    return array;
-}
+// int[] CreateArray(int arg, int arg1, int arg2)
+// {
+//     int[] array = new int[arg];
+//     for (int i = 0; i < array.Length; i++) array[i] = new Random().Next(arg1, arg2);
+//     PrintIntArray(array);
+//     return array;
+// }
 
-bool FindNumber(int num, int[] array)
-{
-
-    int j = 0;
-    while (j < array.Length)
-    {
-        if (array[j] == num)
-        {
-            Console.WriteLine(array[j]);
-            break;
-        }
-    }
-    return num == array[j];
-}
-
+// bool FindNumber(int num, int[] array)
+// {
+//     int j = 0;
+//     while (j < array.Length-1)
+//     {
+//         if (array[j] == num) break;
+//         j += 1;
+//     }
+//     return num == array[j];
+// }
+// int n = 44;
+// Console.WriteLine(FindNumber(n, CreateArray(10, 1, 50)));
 
 // 36. Задать массив, заполнить случайными положительными трёхзначными числами. Показать количество нечетных\четных чисел
+
 // 37. В одномерном массиве из 123 чисел найти количество элементов из отрезка [10,99]
 // 38. Найти сумму чисел одномерного массива стоящих на нечетной позиции
 // 39. Найти произведение пар чисел в одномерном массиве. Парой считаем первый и последний элемент, второй и предпоследний и т.д.

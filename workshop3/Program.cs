@@ -1,10 +1,10 @@
 ﻿// Почувствуй себя интерном
 //-------------------------
 // 0. Вывести квадрат числа
-double squareNumber(double arg)
-{
-    return (arg * arg);
-}
+// double squareNumber(double arg)
+// {
+//     return (arg * arg);
+// }
 // Console.WriteLine($"Квадрат введенного числа равен {squareNumber(UserDouble())}");
 
 
@@ -22,10 +22,10 @@ double squareNumber(double arg)
 //     return flag;
 // }
 
-bool Test(double arg1, double arg2)
-{
-    return arg1 == squareNumber(arg2);// возвращается логическое значение true или false
-}
+// bool Test(double arg1, double arg2)
+// {
+//     return arg1 == squareNumber(arg2);// возвращается логическое значение true или false
+// }
 
 // Console.WriteLine("Введите первое число");
 
@@ -61,21 +61,21 @@ bool Test(double arg1, double arg2)
 
 
 // 3. По заданному номеру дня недели вывести его название
-string WeekDay() // метод, возвращающий имя дня недели, в зависимости от введенного номера дня недели
-{
-    int arg;
-    do
-    {
-        arg = 0;
-        Console.WriteLine("Введите день недели (число от 1 до 7)");
-        arg = Convert.ToInt32(UserNatural());
-    }
-    while (arg > 7);
-    Console.WriteLine($"Введено {arg}");
-    DateTime someDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, arg);
-    string day = Convert.ToString(someDate.DayOfWeek);
-    return day;
-}
+// string WeekDay() // метод, возвращающий имя дня недели, в зависимости от введенного номера дня недели
+// {
+//     int arg;
+//     do
+//     {
+//         arg = 0;
+//         Console.WriteLine("Введите день недели (число от 1 до 7)");
+//         arg = Convert.ToInt32(UserNatural());
+//     }
+//     while (arg > 7);
+//     Console.WriteLine($"Введено {arg}");
+//     DateTime someDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, arg);
+//     string day = Convert.ToString(someDate.DayOfWeek);
+//     return day;
+// }
 
 // Console.WriteLine(WeekDay());
 
@@ -93,29 +93,29 @@ string WeekDay() // метод, возвращающий имя дня неде�
 
 
 // 4. Найти максимальное из трех чисел
-double Compare(double[] array) // этот  метод отвечает за нахождение максимального числа во введенном аргументе
-{
-    double max = array[0];
-    for (int i = 0; i < array.Length; i++)
-    {
-        if (array[i] > max) max = array[i];
-    }
-    return max;
-}
+// double Compare(double[] array) // этот  метод отвечает за нахождение максимального числа во введенном аргументе
+// {
+//     double max = array[0];
+//     for (int i = 0; i < array.Length; i++)
+//     {
+//         if (array[i] > max) max = array[i];
+//     }
+//     return max;
+// }
 
-void FillArray(double[] collection) // Объявляем метод FillArray, который будет заполнять массивы 
-{
-    int length = collection.Length; //присваиваем переменной length значение, соответствующее количеству
-                                    //элементов в аргументе collection
-    int index = 0;                  //устанавливаем счетчик index в нуль
-    while (index < length)          //запускаем заполнение объявляя цикл до значения переменной length
-    {                                                        // тело цикла
-        Console.WriteLine($"Введите {index} элемент");
-        collection[index] = Convert.ToDouble(UserDouble());  //заполняем аргумент collection числами                          
-        Console.Clear();
-        index++;                                             //увеличиваем инкремент
-    }
-}
+// void FillArray(double[] collection) // Объявляем метод FillArray, который будет заполнять массивы 
+// {
+//     int length = collection.Length; //присваиваем переменной length значение, соответствующее количеству
+//                                     //элементов в аргументе collection
+//     int index = 0;                  //устанавливаем счетчик index в нуль
+//     while (index < length)          //запускаем заполнение объявляя цикл до значения переменной length
+//     {                                                        // тело цикла
+//         Console.WriteLine($"Введите {index} элемент");
+//         collection[index] = Convert.ToDouble(UserDouble());  //заполняем аргумент collection числами                          
+//         Console.Clear();
+//         index++;                                             //увеличиваем инкремент
+//     }
+// }
 
 // void PrintArray(double[] col)      // этот метод отвечает за вывод на экран содержимого массивов
 // {
@@ -155,13 +155,13 @@ void FillArray(double[] collection) // Объявляем метод FillArray, 
 
 
 // 5. Написать программу вычисления значения функции y=f(a)
-double Sinus()
-{
-    Console.WriteLine("Введите значение а");
-    string A = Console.ReadLine();
-    double a = double.Parse(A);
-    return Math.Sin(a);
-}
+// double Sinus()
+// {
+//     Console.WriteLine("Введите значение а");
+//     string A = Console.ReadLine();
+//     double a = double.Parse(A);
+//     return Math.Sin(a);
+// }
 
 // Console.WriteLine(Sinus()); 
 
@@ -171,10 +171,10 @@ double Sinus()
 
 // 6. Выяснить является ли число чётным
 
-bool even(double arg)
-{
-    return arg % 2 == 0;
-}
+// bool even(double arg)
+// {
+//     return arg % 2 == 0;
+// }
 
 // double arg = UserDouble();
 // even(arg);
@@ -403,65 +403,65 @@ bool even(double arg)
 // ВСПОМОГАТЕЛЬНЫЕ МЕТОДЫ
 
 //метод (процедура) ожидание пользователя, для того, чтобы дать прочитать условие
-void WaitUser()
-{
-    Console.WriteLine("Нажмите ENTER, когда будете готовы продолжить");
-    while (true)
-    {                                                       //цикл повторяется до тех пор, пока
-        if (Convert.ToString(Console.ReadLine()) == "")     //не нажата клавиша Enter
-        {
-            break;                                          //по выполнению условия прерываю цикл
-        }
-    }
-}
+// void WaitUser()
+// {
+//     Console.WriteLine("Нажмите ENTER, когда будете готовы продолжить");
+//     while (true)
+//     {                                                       //цикл повторяется до тех пор, пока
+//         if (Convert.ToString(Console.ReadLine()) == "")     //не нажата клавиша Enter
+//         {
+//             break;                                          //по выполнению условия прерываю цикл
+//         }
+//     }
+// }
 
 
 
 
 //Метод ожидающий ввода вещественного числа и осуществляющий проверку ввода
-double UserDouble()
-{
-    double Number = 0; //переменная Number, хранит вещественное число, которе вводит пользователь
-    while (true)
-    {
-        Console.WriteLine("Введите вещественное значение");
-        if (double.TryParse((Console.ReadLine()), out double number)) //извлекаем из строки ввода символы и пытаемся присвоить им вещественный тип числа
-        {
-            Number = number;  //если получилось, запоминаем число
-            Console.Clear();
-            break;          //очищаем экран и выходим из цикла
-        }
-        else
-        {
-            Console.WriteLine("Не удалось распознать число, попробуйте еще раз."); //если не получилось, запрашиваем по новой
-        }
-    }
-    return Number;        // возвращаем значение метода (функции) в программу
-}
+// double UserDouble()
+// {
+//     double Number = 0; //переменная Number, хранит вещественное число, которе вводит пользователь
+//     while (true)
+//     {
+//         Console.WriteLine("Введите вещественное значение");
+//         if (double.TryParse((Console.ReadLine()), out double number)) //извлекаем из строки ввода символы и пытаемся присвоить им вещественный тип числа
+//         {
+//             Number = number;  //если получилось, запоминаем число
+//             Console.Clear();
+//             break;          //очищаем экран и выходим из цикла
+//         }
+//         else
+//         {
+//             Console.WriteLine("Не удалось распознать число, попробуйте еще раз."); //если не получилось, запрашиваем по новой
+//         }
+//     }
+//     return Number;        // возвращаем значение метода (функции) в программу
+// }
 
 
 
 
 //Метод ожидающий ввода целочисленного числа, осуществляющий проверку ввода
-int UserInteger()
-{
-    int integerNumber = 0; //переменная integerNumber, в данном случае, хранит число, которое ввел пользователь
-    while (true)
-    {
-        Console.WriteLine("Введите целочисленное значение");
-        if (int.TryParse((Console.ReadLine()), out int number)) //извлекаем из строки ввода символы и пытаемся присвоить им вещественный тип числа
-        {
-            integerNumber = number;  //если получилось, запоминаем число
-            Console.Clear();
-            break;          //очищаем экран и выходим из цикла
-        }
-        else
-        {
-            Console.WriteLine("Не удалось распознать число, попробуйте еще раз."); //если не получилось, запрашиваем по новой
-        }
-    }
-    return integerNumber;        // возвращаем значение метода (функции) в программу
-}
+// int UserInteger()
+// {
+//     int integerNumber = 0; //переменная integerNumber, в данном случае, хранит число, которое ввел пользователь
+//     while (true)
+//     {
+//         Console.WriteLine("Введите целочисленное значение");
+//         if (int.TryParse((Console.ReadLine()), out int number)) //извлекаем из строки ввода символы и пытаемся присвоить им вещественный тип числа
+//         {
+//             integerNumber = number;  //если получилось, запоминаем число
+//             Console.Clear();
+//             break;          //очищаем экран и выходим из цикла
+//         }
+//         else
+//         {
+//             Console.WriteLine("Не удалось распознать число, попробуйте еще раз."); //если не получилось, запрашиваем по новой
+//         }
+//     }
+//     return integerNumber;        // возвращаем значение метода (функции) в программу
+// }
 
 
 
@@ -972,10 +972,136 @@ bool Table()
 
 // 36. Задать массив, заполнить случайными положительными трёхзначными числами. Показать количество нечетных\четных чисел
 
+// void PrintIntArray(int[] col)
+// {
+//     int count = col.Length;
+//     int position = 0;
+//     while (position < count)
+//     {
+//         Console.Write($"{col[position]} ");
+//         position++;
+//     }
+
+//     Console.WriteLine();
+// }
+
+// (int arg1, int arg2) EvenNotEven(int arg)
+// {
+//     int[] array = new int[arg];
+//     int sumEven = 0;
+//     int sumNotEven = 0;
+//     for (int i = 0; i < arg; i++)
+//         {
+//             array[i] = new Random().Next(99, 1000);
+//             if (array[i] % 2 == 0) sumEven += 1;
+//             else sumNotEven += 1;
+//         }
+//     PrintIntArray(array);
+//     // Console.WriteLine(String.Join(',',RandomArray));
+
+//     return (sumEven, sumNotEven);
+// }
+
+// var evenNotEven = EvenNotEven(10);
+// Console.WriteLine($"Summ Even Numbers = {evenNotEven.Item1}, Summ not Even Numbers ={evenNotEven.Item2}");
+
 // 37. В одномерном массиве из 123 чисел найти количество элементов из отрезка [10,99]
+
+// int [] CreateArray(int arg, int arg1, int arg2)
+//     {
+//         int [] array = new int [arg];
+//         for( int i = 0; i <array.Length; i++) array[i] = new Random().Next(arg1,arg2);
+//         return array;
+//     }
+
+// int[] RandomArray = CreateArray(12, -1000, 1000);
+// Console.WriteLine(String.Join(',',RandomArray));
+
+// int Find(int[] mass)
+// {
+//     int sum=0;
+//     for( int j = 0; j < mass.Length; j++) 
+//         if (mass[j] > 9 && mass[j] < 99) sum +=1;
+//     return sum;
+// }
+
+// Console.WriteLine(Find(RandomArray));
+
 // 38. Найти сумму чисел одномерного массива стоящих на нечетной позиции
-// 39. Найти произведение пар чисел в одномерном массиве. Парой считаем первый и последний элемент, второй и предпоследний и т.д.
+
+// int[] CreateArray(int arg, int arg1, int arg2)
+// {
+//     int[] array = new int[arg];
+//     for (int i = 0; i < array.Length; i++) array[i] = new Random().Next(arg1, arg2);
+//     return array;
+// }
+
+// int[] RandomArray = CreateArray(12, 1, 10);
+// Console.WriteLine(String.Join(',', RandomArray));
+
+// int SummOddPosition(int[] mass)
+// {
+//     int sum = 0;
+//     for (int j = 0; j < mass.Length; j++) if (j % 2 != 0) sum += mass[j]; 
+//     return sum;
+// }
+
+// Console.WriteLine(SummOddPosition(RandomArray));
+
+// 39. Найти произведение пар чисел в одномерном массиве. 
+// Парой считаем первый и последний элемент, второй и предпоследний и т.д.
+
+// int[] CreateArray(int arg, int arg1, int arg2)
+// {
+//     int[] array = new int[arg];
+//     for (int i = 0; i < array.Length; i++) array[i] = new Random().Next(arg1, arg2);
+//     return array;
+// }
+
+// int[] RandomArray = CreateArray(11, 1, 10);
+// Console.WriteLine(String.Join(',', RandomArray));
+
+// int[] SummOddPosition(int[] mass)
+// {
+//     int[] work = new int[mass.Length/2];
+//     int len = mass.Length-1;
+//     for (int j = 0; j < mass.Length/2; j++)
+//         {
+//         work[j] = mass[j] * mass[len];
+//         len -=1;
+//         }
+//     return work;
+// }
+
+// Console.WriteLine(String.Join(',', SummOddPosition(RandomArray)));
+
+
 // 40. В Указанном массиве вещественных чисел найдите разницу между максимальным и минимальным элементом
+
+double[] CreateArray(int arg)
+{
+    double[] array = new double[arg];
+    for (int i = 0; i < arg; i++) array[i] = new Random().NextDouble();
+    return array;
+}
+
+double[] RandomArray = CreateArray(11);
+Console.WriteLine(String.Join(',', RandomArray));
+
+double Difference(double[] mass)
+{
+    double max = mass[0];
+    double min = mass[0];
+    for (int j = 0; j < mass.Length; j++)
+    {
+        if (mass[j] > max) max = mass[j];
+        else min = mass[j];
+    }
+    return max - min;
+}
+
+Console.WriteLine(String.Join(',', Difference(RandomArray)));
+
 
 // Почувствуй себя лидом
 //--------------------------

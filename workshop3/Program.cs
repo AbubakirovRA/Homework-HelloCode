@@ -1,12 +1,96 @@
-﻿// Почувствуй себя интерном
-//-------------------------
-// 0. Вывести квадрат числа
-// double squareNumber(double arg)
-// {
-//     return (arg * arg);
-// }
-// Console.WriteLine($"Квадрат введенного числа равен {squareNumber(UserDouble())}");
+﻿// ВСПОМОГАТЕЛЬНЫЕ МЕТОДЫ
 
+// метод (процедура) ожидание пользователя, для того, чтобы дать прочитать условие
+void WaitUser()
+{
+    Console.WriteLine("Нажмите ENTER, когда будете готовы продолжить");
+    while (true)
+    {                                                       //цикл повторяется до тех пор, пока
+        if (Convert.ToString(Console.ReadLine()) == "")     //не нажата клавиша Enter
+        {
+            break;                                          //по выполнению условия прерываю цикл
+        }
+    }
+}
+
+//Метод ожидающий ввода вещественного числа и осуществляющий проверку ввода
+double UserDouble()
+{
+    double Number = 0; //переменная Number, хранит вещественное число, которе вводит пользователь
+    while (true)
+    {
+        Console.WriteLine("Введите вещественное значение");
+        if (double.TryParse((Console.ReadLine()), out double number)) //извлекаем из строки ввода символы и пытаемся присвоить им вещественный тип числа
+        {
+            Number = number;  //если получилось, запоминаем число
+            Console.Clear();
+            break;          //очищаем экран и выходим из цикла
+        }
+        else
+        {
+            Console.WriteLine("Не удалось распознать число, попробуйте еще раз."); //если не получилось, запрашиваем по новой
+        }
+    }
+    return Number;        // возвращаем значение метода (функции) в программу
+}
+
+//Метод ожидающий ввода целочисленного числа, осуществляющий проверку ввода
+int UserInteger()
+{
+    int integerNumber = 0; //переменная integerNumber, в данном случае, хранит число, которое ввел пользователь
+    while (true)
+    {
+        Console.WriteLine("Введите целочисленное значение");
+        if (int.TryParse((Console.ReadLine()), out int number)) //извлекаем из строки ввода символы и пытаемся присвоить им вещественный тип числа
+        {
+            integerNumber = number;  //если получилось, запоминаем число
+            Console.Clear();
+            break;          //очищаем экран и выходим из цикла
+        }
+        else
+        {
+            Console.WriteLine("Не удалось распознать число, попробуйте еще раз."); //если не получилось, запрашиваем по новой
+        }
+    }
+    return integerNumber;        // возвращаем значение метода (функции) в программу
+}
+
+//Метод ожидающий ввода целочисленного числа, осуществляющий проверку ввода
+int UserNatural()
+{
+    int integerNumber = 0; //переменная integerNumber, в данном случае, хранит число, которое ввел пользователь
+    while (true)
+    {
+        Console.WriteLine("Введите целочисленное значение");
+        if (int.TryParse((Console.ReadLine()), out int number)) //извлекаем из строки ввода символы и пытаемся присвоить им вещественный тип числа
+        {
+            if (number > 0)
+            {
+                integerNumber = number;  //если получилось, запоминаем число
+                Console.Clear();
+                break;          //очищаем экран и выходим из цикла
+            }
+        }
+        else
+        {
+            Console.WriteLine("Не удалось распознать число, попробуйте еще раз."); //если не получилось, запрашиваем по новой
+        }
+    }
+    return integerNumber;        // возвращаем значение метода (функции) в программу
+}
+
+// этот метод отвечает за вывод на экран содержимого массивов
+void PrintIntArray(int[] col)
+{
+    int count = col.Length;
+    int position = 0;
+    while (position < count)
+    {
+        Console.Write($"{col[position]} ");
+        position++;
+    }
+    Console.WriteLine();
+}
 
 
 
@@ -14,28 +98,32 @@
 
 
 // 1. По двум заданным числам проверять является ли первое квадратом второго
-// int Test(double arg1, double arg2)
-// {
-//     int flag = 0;
-//     if (arg1 == squareNumber(arg2)) flag = 1; //Console.WriteLine("Первое число является квадратом второго");
-//     else flag = 2; //Console.WriteLine("Первое число не является квадратом второго");
-//     return flag;
-// }
+double squareNumber(double arg)
+{
+    return (arg * arg);
+}
 
-// bool Test(double arg1, double arg2)
-// {
-//     return arg1 == squareNumber(arg2);// возвращается логическое значение true или false
-// }
+int Test(double arg1, double arg2)
+{
+    int flag = 0;
+    if (arg1 == squareNumber(arg2)) flag = 1; //Console.WriteLine("Первое число является квадратом второго");
+    else flag = 2; //Console.WriteLine("Первое число не является квадратом второго");
+    return flag;
+}
 
-// Console.WriteLine("Введите первое число");
+bool Test(double arg1, double arg2)
+{
+    return arg1 == squareNumber(arg2);// возвращается логическое значение true или false
+}
 
-// double arg1 = UserDouble();
-// Console.WriteLine("Введите второе число");
-// double arg2 = UserDouble();
-// Console.WriteLine($"Введено {arg1} и {arg2}");
+Console.WriteLine("Введите первое число");
+double arg1 = UserDouble();
+Console.WriteLine("Введите второе число");
+double arg2 = UserDouble();
+Console.WriteLine($"Введено {arg1} и {arg2}");
 
-// if (Test(arg1, arg2)) Console.WriteLine("Первое число является квадратом второго");// Если в конструкции if-else используются логические условия,
-// else Console.WriteLine("Первое число не является квадратом второго"); // то достаточно после if поставить условие, возвращающее true-значение, а после else значение false
+if (Test(arg1, arg2)) Console.WriteLine("Первое число является квадратом второго");// Если в конструкции if-else используются логические условия,
+else Console.WriteLine("Первое число не является квадратом второго"); // то достаточно после if поставить условие, возвращающее true-значение, а после else значение false
 
 
 
@@ -395,132 +483,6 @@
 
 // if (Test14(num)) Console.WriteLine("Нет");
 // else Console.WriteLine($"Есть: {(num % 10)}");
-
-
-
-
-
-// ВСПОМОГАТЕЛЬНЫЕ МЕТОДЫ
-
-//метод (процедура) ожидание пользователя, для того, чтобы дать прочитать условие
-// void WaitUser()
-// {
-//     Console.WriteLine("Нажмите ENTER, когда будете готовы продолжить");
-//     while (true)
-//     {                                                       //цикл повторяется до тех пор, пока
-//         if (Convert.ToString(Console.ReadLine()) == "")     //не нажата клавиша Enter
-//         {
-//             break;                                          //по выполнению условия прерываю цикл
-//         }
-//     }
-// }
-
-
-
-
-//Метод ожидающий ввода вещественного числа и осуществляющий проверку ввода
-// double UserDouble()
-// {
-//     double Number = 0; //переменная Number, хранит вещественное число, которе вводит пользователь
-//     while (true)
-//     {
-//         Console.WriteLine("Введите вещественное значение");
-//         if (double.TryParse((Console.ReadLine()), out double number)) //извлекаем из строки ввода символы и пытаемся присвоить им вещественный тип числа
-//         {
-//             Number = number;  //если получилось, запоминаем число
-//             Console.Clear();
-//             break;          //очищаем экран и выходим из цикла
-//         }
-//         else
-//         {
-//             Console.WriteLine("Не удалось распознать число, попробуйте еще раз."); //если не получилось, запрашиваем по новой
-//         }
-//     }
-//     return Number;        // возвращаем значение метода (функции) в программу
-// }
-
-
-
-
-//Метод ожидающий ввода целочисленного числа, осуществляющий проверку ввода
-// int UserInteger()
-// {
-//     int integerNumber = 0; //переменная integerNumber, в данном случае, хранит число, которое ввел пользователь
-//     while (true)
-//     {
-//         Console.WriteLine("Введите целочисленное значение");
-//         if (int.TryParse((Console.ReadLine()), out int number)) //извлекаем из строки ввода символы и пытаемся присвоить им вещественный тип числа
-//         {
-//             integerNumber = number;  //если получилось, запоминаем число
-//             Console.Clear();
-//             break;          //очищаем экран и выходим из цикла
-//         }
-//         else
-//         {
-//             Console.WriteLine("Не удалось распознать число, попробуйте еще раз."); //если не получилось, запрашиваем по новой
-//         }
-//     }
-//     return integerNumber;        // возвращаем значение метода (функции) в программу
-// }
-
-
-
-
-//Метод ожидающий ввода целочисленного числа, осуществляющий проверку ввода
-int UserNatural()
-{
-    int integerNumber = 0; //переменная integerNumber, в данном случае, хранит число, которое ввел пользователь
-    while (true)
-    {
-        Console.WriteLine("Введите целочисленное значение");
-        if (int.TryParse((Console.ReadLine()), out int number)) //извлекаем из строки ввода символы и пытаемся присвоить им вещественный тип числа
-        {
-            if (number > 0)
-            {
-                integerNumber = number;  //если получилось, запоминаем число
-                Console.Clear();
-                break;          //очищаем экран и выходим из цикла
-            }
-        }
-        else
-        {
-            Console.WriteLine("Не удалось распознать число, попробуйте еще раз."); //если не получилось, запрашиваем по новой
-        }
-    }
-    return integerNumber;        // возвращаем значение метода (функции) в программу
-}
-
-
-
-// этот метод отвечает за вывод на экран содержимого массивов
-// void PrintIntArray(int[] col)
-// {
-//     int count = col.Length;
-//     int position = 0;
-//     while (position < count)
-//     {
-//         Console.Write($"{col[position]} ");
-//         position++;
-//     }
-//     Console.WriteLine();
-// }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

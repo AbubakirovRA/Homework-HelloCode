@@ -117,17 +117,17 @@ void FillArray(double[] collection) // Объявляем метод FillArray, 
     }
 }
 
-// void PrintArray(double[] col)      // этот метод отвечает за вывод на экран содержимого массивов
-// {
-//     int count = col.Length;
-//     int position = 0;
-//     while (position < count)
-//     {
-//         Console.Write($"{col[position]} ");
-//         position++;
-//     }
-//     Console.WriteLine();
-// }
+void PrintArray(string[] col)      // этот метод отвечает за вывод на экран содержимого массивов
+{
+    int count = col.Length;
+    int position = 0;
+    while (position < count)
+    {
+        Console.Write($"{col[position]} ");
+        position++;
+    }
+    Console.WriteLine();
+}
 
 // ТЕЛО ПРОГРАММЫ
 // Console.Clear();
@@ -652,7 +652,7 @@ bool Table()
     return res;
 }
 
-Console.WriteLine(Table());
+// Console.WriteLine(Table());
 
 
 // 19. Определить номер четверти плоскости, в которой находится точка с координатами Х и У, причем X ≠ 0 и Y ≠ 0
@@ -802,42 +802,42 @@ int Summ(int [] Array)
 
 // 35. Определить, присутствует ли в заданном массиве, некоторое число 
 
-void PrintIntArray(int[] col)
-{
-    int count = col.Length;
-    int position = 0;
-    while (position < count)
-    {
-        Console.Write($"{col[position]} ");
-        position++;
-    }
+// void PrintIntArray(int[] col)
+// {
+//     int count = col.Length;
+//     int position = 0;
+//     while (position < count)
+//     {
+//         Console.Write($"{col[position]} ");
+//         position++;
+//     }
     
-    Console.WriteLine();
-}
+//     Console.WriteLine();
+// }
 
 
-int [] CreateArray(int arg, int arg1, int arg2)
-    {
-        int [] array = new int [arg];
-        for( int i = 0; i <array.Length; i++) array[i] = new Random().Next(arg1,arg2);
-        PrintIntArray(array);
-        return array;
-    }
+// int [] CreateArray(int arg, int arg1, int arg2)
+//     {
+//         int [] array = new int [arg];
+//         for( int i = 0; i <array.Length; i++) array[i] = new Random().Next(arg1,arg2);
+//         PrintIntArray(array);
+//         return array;
+//     }
 
-bool FindNumber (int num, int [] array)
-{
+// bool FindNumber (int num, int [] array)
+// {
     
-    int j = 0;
-    while ( j < array.Length)
-    {
-        if(array[j] == num) 
-        {
-            Console.WriteLine(array[j]);
-            break;
-        }
-    }
-    return num == array[j];
-}
+//     int j = 0;
+//     while ( j < array.Length)
+//     {
+//         if(array[j] == num) 
+//         {
+//             Console.WriteLine(array[j]);
+//             break;
+//         }
+//     }
+//     return num == array[j];
+// }
 
 
 // 36. Задать массив, заполнить случайными положительными трёхзначными числами. Показать количество нечетных\четных чисел
@@ -855,3 +855,7 @@ bool FindNumber (int num, int [] array)
 // 45. Показать числа Фибоначчи
 // 46. Написать программу масштабирования фигуры
 // 47. Написать программу копирования массива
+
+String word = Console.ReadLine();
+string[] alph = word.Split(',');
+Console.WriteLine(String.Join(',', alph));

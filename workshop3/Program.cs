@@ -625,10 +625,10 @@ bool f(bool arg1, bool arg2)
 // res =res && f(x, y);
 // System.Console.WriteLine(res);
 
-bool ConvertIntToBool(int arg)
-{
-    return arg == 1;
-}
+// bool ConvertIntToBool(int arg)
+// {
+//     return arg == 1;
+// }
 // bool res = true;
 // for (int i = 0; i <= 1; i++)
 // {
@@ -639,18 +639,18 @@ bool ConvertIntToBool(int arg)
 // }
 //System.Console.WriteLine(res);
 
-bool Table()
-{
-    bool res = true;
-    for (int i = 0; i <= 1; i++)
-    {
-        for (int j = 0; j <= 1; j++)
-        {
-            res = res && f(Convert.ToBoolean(i), ConvertIntToBool(j));
-        }
-    }
-    return res;
-}
+// bool Table()
+// {
+//     bool res = true;
+//     for (int i = 0; i <= 1; i++)
+//     {
+//         for (int j = 0; j <= 1; j++)
+//         {
+//             res = res && f(Convert.ToBoolean(i), ConvertIntToBool(j));
+//         }
+//     }
+//     return res;
+// }
 
 // Console.WriteLine(Table());
 
@@ -675,15 +675,15 @@ bool Table()
 
 
 // 20. Ввести номер четверти, показать диапазоны для возможных координат
-(string, string) Limits(int arg)
-{
-    var t = ("", "");
-    if (arg == 1) t = ("X принадлежит диапазону вещественных чисел от 0 до + бесконечности", "Y принадлежит диапазону вещественных чисел от 0 до + бесконечности");
-    if (arg == 2) t = ("X принадлежит диапазону вещественных чисел от 0 до + бесконечности", "Y принадлежит диапазону вещественных чисел от 0 до - бесконечности");
-    if (arg == 3) t = ("X принадлежит диапазону вещественных чисел от 0 до - бесконечности", "Y принадлежит диапазону вещественных чисел от 0 до - бесконечности");
-    if (arg == 4) t = ("X принадлежит диапазону вещественных чисел от 0 до - бесконечности", "Y принадлежит диапазону вещественных чисел от 0 до + бесконечности");
-    return t;
-}
+// (string, string) Limits(int arg)
+// {
+//     var t = ("", "");
+//     if (arg == 1) t = ("X принадлежит диапазону вещественных чисел от 0 до + бесконечности", "Y принадлежит диапазону вещественных чисел от 0 до + бесконечности");
+//     if (arg == 2) t = ("X принадлежит диапазону вещественных чисел от 0 до + бесконечности", "Y принадлежит диапазону вещественных чисел от 0 до - бесконечности");
+//     if (arg == 3) t = ("X принадлежит диапазону вещественных чисел от 0 до - бесконечности", "Y принадлежит диапазону вещественных чисел от 0 до - бесконечности");
+//     if (arg == 4) t = ("X принадлежит диапазону вещественных чисел от 0 до - бесконечности", "Y принадлежит диапазону вещественных чисел от 0 до + бесконечности");
+//     return t;
+// }
 
 // int number;
 // while (true)
@@ -761,7 +761,14 @@ bool Table()
 
 // где x1, y1 и z1 координаты первой точки, а x2, y2 и z2 координаты второй точки. 
 
+// double Distance((int x, int y, int z)a, (int x, int y, int z)b)
+// {
+//     return Math.Sqrt((b.x-a.x)*(b.x-a.x)+(b.y-a.y)*(b.y-a.y)+(b.z-a.z)*(b.z-a.z));
+// }
+// var a=(1, 4, 10);
+// var b=(6, 7, 15);
 
+// Console.WriteLine($"Расстояние между двумя точками: {Math.Round(Distance(a, b)),2}");
 
 // Почувствуй себя мидлом
 //------------------------
@@ -1088,37 +1095,118 @@ bool Table()
 
 // 40. В Указанном массиве вещественных чисел найдите разницу между максимальным и минимальным элементом
 
-double[] CreateArray(int arg)
-{
-    double[] array = new double[arg];
-    for (int i = 0; i < arg; i++) array[i] = new Random().NextDouble();
-    return array;
-}
+// double[] CreateArray(int arg)
+// {
+//     double[] array = new double[arg];
+//     for (int i = 0; i < arg; i++) array[i] = new Random().NextDouble();
+//     return array;
+// }
 
-double[] RandomArray = CreateArray(11);
-Console.WriteLine(String.Join(',', RandomArray));
+// double[] RandomArray = CreateArray(11);
+// Console.WriteLine(String.Join(',', RandomArray));
 
-double Difference(double[] mass)
-{
-    double max = mass[0];
-    double min = mass[0];
-    for (int j = 0; j < mass.Length; j++)
-    {
-        if (mass[j] > max) max = mass[j];
-        else min = mass[j];
-    }
-    return max - min;
-}
+// double Difference(double[] mass)
+// {
+//     double max = mass[0];
+//     double min = mass[0];
+//     for (int j = 0; j < mass.Length; j++)
+//     {
+//         if (mass[j] > max) max = mass[j];
+//         else min = mass[j];
+//     }
+//     return max - min;
+// }
 
-Console.WriteLine(String.Join(',', Difference(RandomArray)));
+// Console.WriteLine(String.Join(',', Difference(RandomArray)));
 
 
 // Почувствуй себя лидом
 //--------------------------
-// 41. Выяснить являются ли три числа сторонами треугольника 
+// 41. Выяснить являются ли три числа сторонами треугольника
+
+// bool Distance((int a, int b, int c)len)
+// {
+//     return len.a+len.b>len.c && len.a+len.c>len.b && len.c+len.b>len.a;
+// }
+// var len=(10, 4, 10);
+
+// Console.WriteLine($"Утверждение, что числа {len} являются сторонами одного треугольника: {Distance(len)}");
+
 // 42. Определить сколько чисел больше 0 введено с клавиатуры
+
+// int count = 0;
+// while (true)
+// {
+//     Console.WriteLine("Enter the digit to count or Chare to exit");
+//     if (int.TryParse((Console.ReadLine()), out int number))
+//         {
+//             if (number > 0) count += 1;
+//         }
+//     else break;
+// }
+// Console.WriteLine($"You enter {count} digits > 0");
+
 // 43. Написать программу преобразования десятичного числа в двоичное
-// 44. Найти точку пересечения двух прямых заданных уравнением y=kx+b, а1 k1 и а2 и k2 заданы
+// string ConvToBin(int arg)
+// {
+//     string str = string.Empty;
+//     while (arg > 0)
+//     {
+//         str = str.Insert(0, Convert.ToString(arg % 2));
+//         arg /= 2;
+//     }
+//     return str;
+// }
+// Console.WriteLine(ConvToBin(52));
+
+// 44. Найти точку пересечения двух прямых заданных уравнениями 
+// y = k1 * x + b1, y = k2 * x + b2, b1 k1 и b2 и k2 заданы
+
+// (double, double) Cross((int k, int b) a1, (int k, int b) a2)
+// {
+//     double y = (a2.b * a1.k - a1.b * a2.k) / (a1.k - a2.k); //y выражен из y = k2 * x + b2 ч/з подстановку
+//     double x = (y-a1.b)/a1.k;                              //в качестве x выражения (y-b1)/k1
+//     // double x = (a2.b-a1.b)/(a1.k+a2.k); //альтернативная формула выведенная из приравнивания
+//     // double y = (a1.k*x+a1.b);           //уравненний друг к другу, исзодя из предположения,
+//     return (x, y);                      //что если прямые пересекаются значит и x у них одинаковый
+// }
+// var A1 = (12, 1); //коэффициенты k1 и b1
+// var A2 = (6, 3); //коэффициенты k2 и b2
+// Console.WriteLine($"Имеем две прямые: y = {A1.Item1}x + {A1.Item2} и y = {A2.Item1}x + {A2.Item2}");
+// if (Convert.ToDouble(A1.Item1) / Convert.ToDouble(A2.Item1)==Convert.ToDouble(A1.Item2) / Convert.ToDouble(A2.Item2)) Console.WriteLine($"Прямые параллельны либо совпадают");
+// else Console.WriteLine($"Точка пересечения прямых {(Cross(A1, A2))}");
+
+// (double, double) CheckCross() //решение системы двух линейных уравнений по формулам Крамера
+// {                                     //находится определитель системы Delta = a * b1 - b * a1, 
+//     double a = Read("a");             //если он не равен 0, то система имеет единственное решение
+//     double b = Read("b");             //далее находится Delta(x), тогда x= Delta(x) / Delta
+//     double c = Read("c");             //аналогично находится Delta(y), тогда y= Delta(y) / Delta
+//     double a1 = Read("a1");
+//     double b1 = Read("b1");
+//     double c1 = Read("c1");
+
+//     double Delta = a * b1 - b * a1;   //определитель системы уравнений
+//     if (Delta != 0) 
+//     {
+//         Console.WriteLine($"Система имеет единственное решение");
+//         return ((a * c1 - c * a1 / Delta), (c * b1 - b * c1 / Delta));
+//     }
+//     else 
+//     {
+//         Console.WriteLine($"Cистема не имеет решений");
+//         return ((a * c1 - c * a1 / Delta), (c * b1 - b * c1 / Delta));
+//     }
+// }
+
+// double Read(string Name)
+// {
+//     Console.Write(Name + " = ");
+//     return double.Parse(Console.ReadLine());
+// }
+// var res = CheckCross();
+// Console.WriteLine($"x = {res.Item1}, y = {res.Item2}");
+// Console.ReadKey();
+
 // 45. Показать числа Фибоначчи
 // 46. Написать программу масштабирования фигуры
 // 47. Написать программу копирования массива

@@ -1,15 +1,11 @@
-﻿// 28. Подсчитать сумму цифр в числе
+﻿// 29. Написать программу вычисления произведения чисел от 1 до N
 
-// int DigitsSum(int arg)
+// int WorkNum(int arg)
 // {
-//     int sum = 0;
-//     while (arg > 0)
-//     {
-//         sum += arg % 10;
-//         arg /= 10;
-//     }
-//     return sum;
+//     int work = 1;
+//     for (int i = 1; i <= arg; i++) work *= i;
+//     return work;
 // }
 
-// int num = 123546789;
-// Console.WriteLine(DigitsSum(num));
+// int n = 5;
+// Console.WriteLine(WorkNum(n));

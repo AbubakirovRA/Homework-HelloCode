@@ -32,8 +32,19 @@
     return ((a.x, b.y), (b.x, a.y), (b.x, b.y));
 }
 
-var a=(3 ,5);
-var b=(5, 7);
-int scale = 4;
+int Read(string Name)
+{
+    Console.Write(Name + " = ");
+    return double.Parse(Console.ReadLine());
+}
+
+int x = Read("X for point A = ");
+int y = Read("Y for point A = ");
+int x1 = Read("X1 for point B = ");
+int y1 = Read("Y1 for point B = ");
+var a = (x, y);
+var b = (x1, y1);
+
+int scale = Read("Scale = ");
 
 Console.WriteLine($"{a}, {ScaleSquare(scale, a, b)}");

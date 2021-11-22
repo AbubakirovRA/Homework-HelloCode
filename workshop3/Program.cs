@@ -1,16 +1,19 @@
 ﻿// 46. Написать программу масштабирования фигуры
-int n = 2;
-int k = 5;
-int i = 0;
-int j = 0;
-Console.Clear();
-for (i = 0; i < n * k; i++)
-{
-    for (j = 0; j < n * k; j++)
-    {
-        Console.SetCursorPosition(i, j);
-        Console.Write("0");
-    }
+// int n = 2;
+// int k = 2;
+// int i = 0;
+// int j = 0;
+// Console.Clear();
+// for (i = 0; i < n * k; i++)
+// {
+//     for (j = 0; j < n * k; j++)
+//     {
+//         Console.SetCursorPosition(i, j);
+//         Console.Write("0");
+//     }
 
-}
+// }
 
+// Дан набор точек, допустим прямоугольник.
+// Имеем 4 координаты: x1,y1,   x2,y2,   x3,y3,   x4,y4;
+// Коэффициент масштабирования k;

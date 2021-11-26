@@ -1,5 +1,5 @@
-﻿int[] Mixing()
-{
+﻿int[] Mixing() // Перетасовка колоды карт, метод возвращает массив с 52-мя значениями карт,
+{              // размещенных на случайных позициях 
     int[] deck = new int[52];
     for (int i = 0; i < deck.Length; i++)
     {
@@ -17,16 +17,15 @@
 }
 
 
-(int[], int[]) setUp(int[] deck)
-{
-    int[] player = new int[deck.Length];
-    int[] croupier = new int[deck.Length];
-    int flag = 0;
+(int[], int[]) setUp(int[] deck)            // набор карт игроком и крупье
+{                                           // метод возвращает два массива со значениями карт
+    int[] player = new int[deck.Length];    // массив игрока
+    int[] croupier = new int[deck.Length];  // массив крупье
+    int flag = 0;                           // переменная flag хранит позицию в массиве колоды
+                                            // на которой закончил брать карты игрок
+    player[0] = deck[deck.Length - 1];      // на первую (нулевую) позицию массива игрока записываем значение карты, которая находится в колоде на последней позиции
+    deck[deck.Length - 1] = 0;              // последнюю позицию массива колоды обнуляем
 
-    player[0] = deck[deck.Length - 1];
-    deck[deck.Length - 1] = 0;
-
-    // Console.WriteLine(String.Join(',', deck));
     Console.WriteLine($"Ваша первая карта: {WhatIsCard(player[0])}");
     if ((!Overload(player)) && player[0] == 1) player[0] = 111;
 
@@ -38,9 +37,8 @@
             player[i] = deck[deck.Length - 1 - i];
             deck[deck.Length - 1 - i] = 0;
             Console.WriteLine($"Ваша {i + 1}-я карта: {WhatIsCard(player[i])}");
-            // Console.WriteLine(String.Join(',', player));
+
             if ((!Overload(player)) && player[i] == 1) player[i] = 111;
-            // Console.WriteLine(String.Join(',', player));
             if (Overload(player))
             {
                 Console.WriteLine("У Вас перебор!");
@@ -56,15 +54,15 @@
         }
     }
 
-    croupier[0] = deck[deck.Length - flag-1];
-    deck[deck.Length - flag-1] = 0;
+    croupier[0] = deck[deck.Length - flag-1];   // на первую позицию массива крупье (за минусом нулевых позиций, которые забрал игрок)
+                                                // записываем значение карты, которая находится в колоде на последней позиции
+    deck[deck.Length - flag-1] = 0;             // последнюю позицию массива колоды ( за минусом нулевых) обнуляем
 
-    Thread.Sleep(1500);
+    Thread.Sleep(1500);                         // задержка                         
     Console.Clear();
 
-    // Console.WriteLine(String.Join(',', deck));
     Console.WriteLine($"Первый ход крупье. Выпала карта: {WhatIsCard(croupier[0])}");
-    if (croupier[0] == 1) croupier[0] = 111;
+    if (croupier[0] == 1) croupier[0] = 111;    //если выпал туз, записываем в массив 111
 
     for (int j = 1; j < deck.Length - 1; j++)
     {
@@ -75,9 +73,8 @@
             croupier[j] = deck[deck.Length - (flag + 1) - j];
             deck[deck.Length - (flag + 1) - j] = 0;
             Console.WriteLine($"Выпала карта: {WhatIsCard(croupier[j])}");
-            // Console.WriteLine(String.Join(',', croupier));
+
             if (croupier[j] == 1) croupier[j] = 111;
-            // Console.WriteLine(String.Join(',', croupier));
             if (OverloadCroupier(croupier) > 21)
             {
                 Console.WriteLine("У крупье перебор!");
@@ -92,7 +89,7 @@
         Thread.Sleep(1500);
     }
 
-    bool Overload(int[] collection)
+    bool Overload(int[] collection)      // проверка "перебора" у игрока
     {
         int sum = 0;
         for (int i = 0; i < collection.Length; i++)
@@ -104,7 +101,7 @@
         return sum > 21;
     }
 
-    int OverloadCroupier(int[] collection)
+    int OverloadCroupier(int[] collection)      // проверка "перебора" у крупье
     {
         int sum = 0;
         for (int i = 0; i < collection.Length; i++)
@@ -116,12 +113,12 @@
         return sum;
     }
 
-    bool WaitUser() //метод (процедура) ожидание ответа пользователя
+    bool WaitUser()                             //метод (процедура) ожидание ответа пользователя
     {
         while (true)
         {
             string answer = Console.ReadLine();
-            return answer.ToLower() == "y";
+            return answer.ToLower() == "y";     //если нажата "y", то возвращает значение true
         }
     }
 
@@ -151,8 +148,6 @@ Console.Clear();
 var score = setUp(Mixing());
 int playerScore = 0;
 int croupierScore = 0;
-// Console.WriteLine(String.Join(',', score.Item1));
-// Console.WriteLine(String.Join(',', score.Item2));
 
 for (int i = 0; i < score.Item1.Length; i++)
 {
@@ -165,21 +160,3 @@ for (int i = 0; i < score.Item1.Length; i++)
 }
 Console.Clear();
 Console.WriteLine($"Счет игрока: {playerScore}, счет крупье: {croupierScore} ");
-
-
-
-// Объясняю в двух словах:
-// Пишем
-
-// List<int> col= new();
-
-// Чтобы добавить элемент пишем
-// col.Add(123);
-
-// Чтобы удалить col.Remove(123);
-
-// Узнать количество элементов : col.Count
-// Работать можно как с массивом: col[1] = 28;
-// int[] a=new int[]{1, 2, 3};
-// int[] b=new int[]{4, 5, 6};
-// int[] c=a.Concat(b).ToArray(); объединение массивов

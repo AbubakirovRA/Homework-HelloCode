@@ -44,6 +44,7 @@
             if (Overload(player))
             {
                 Console.WriteLine("У Вас перебор. Вы проиграли!");
+                flag = i;
                 i = deck.Length - 1;
             }
 

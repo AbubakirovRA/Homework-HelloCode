@@ -1,99 +1,185 @@
-﻿// Почувствуй себя интерном
+﻿int[] Mixing()
+{
+    int[] deck = new int[52];
+    for (int i = 0; i < deck.Length; i++)
+    {
+        deck[i] = new Random().Next(1, 14);
+        if (CheckNum(deck[i], deck)) i -= 1;
+    }
 
-//     Вывести квадрат числа
+    bool CheckNum(int arg, int[] deck)
+    {
+        int count = 0;
+        for (int i = 0; i < deck.Length; i++) if (arg == deck[i]) count += 1;
+        return count > 4;
+    }
+    return deck;
+}
 
-//     По двум заданным числам проверять является ли первое квадратом второго
 
-//     Даны два числа. Показать большее и меньшее число
+(int[], int[]) setUp(int[] deck)
+{
+    int[] player = new int[deck.Length];
+    int[] croupier = new int[deck.Length];
+    int flag = 0;
 
-//     По заданному номеру дня недели вывести его название
+    player[0] = deck[deck.Length - 1];
+    deck[deck.Length - 1] = 0;
 
-//     Найти максимальное из трех чисел
+    // Console.WriteLine(String.Join(',', deck));
+    Console.WriteLine($"Ваша первая карта: {WhatIsCard(player[0])}");
+    if ((!Overload(player)) && player[0] == 1) player[0] = 111;
 
-//     Написать программу вычисления значения функции y=f(a)
+    for (int i = 1; i < deck.Length - 1; i++)
+    {
+        Console.WriteLine("Ещё? (Да - 'Y', Нет - любая клавиша): ");
+        if (WaitUser())
+        {
+            player[i] = deck[deck.Length - 1 - i];
+            deck[deck.Length - 1 - i] = 0;
+            Console.WriteLine($"Ваша {i + 1}-я карта: {WhatIsCard(player[i])}");
+            // Console.WriteLine(String.Join(',', player));
+            if ((!Overload(player)) && player[i] == 1) player[i] = 111;
+            // Console.WriteLine(String.Join(',', player));
+            if (Overload(player))
+            {
+                Console.WriteLine("У Вас перебор!");
+                flag = i+1;
+                i = deck.Length - 1;
+            }
 
-//     Выяснить является ли число чётным
+        }
+        else
+        {
+            flag = i;
+            i = deck.Length - 1;
+        }
+    }
 
-//     Показать числа от -N до N
+    croupier[0] = deck[deck.Length - flag-1];
+    deck[deck.Length - flag-1] = 0;
 
-//     Показать четные числа от 1 до N
+    Thread.Sleep(1500);
+    Console.Clear();
 
-//     Показать последнюю цифру трёхзначного числа
+    // Console.WriteLine(String.Join(',', deck));
+    Console.WriteLine($"Первый ход крупье. Выпала карта: {WhatIsCard(croupier[0])}");
+    if (croupier[0] == 1) croupier[0] = 111;
 
-//     Показать вторую цифру трёхзначного числа
+    for (int j = 1; j < deck.Length - 1; j++)
+    {
+        if (OverloadCroupier(croupier) < 17)
+        {
+            Thread.Sleep(1500);
+            Console.WriteLine($"{j + 1}-й xод крупье.");
+            croupier[j] = deck[deck.Length - (flag + 1) - j];
+            deck[deck.Length - (flag + 1) - j] = 0;
+            Console.WriteLine($"Выпала карта: {WhatIsCard(croupier[j])}");
+            // Console.WriteLine(String.Join(',', croupier));
+            if (croupier[j] == 1) croupier[j] = 111;
+            // Console.WriteLine(String.Join(',', croupier));
+            if (OverloadCroupier(croupier) > 21)
+            {
+                Console.WriteLine("У крупье перебор!");
+                j = deck.Length - 1;
+            }
 
-//     Дано число из отрезка [10, 99]. Показать наибольшую цифру числа
+        }
+        else
+        {
+            j = deck.Length - 1;
+        }
+        Thread.Sleep(1500);
+    }
 
-//     Удалить вторую цифру трёхзначного числа
+    bool Overload(int[] collection)
+    {
+        int sum = 0;
+        for (int i = 0; i < collection.Length; i++)
+        {
+            if (collection[i] < 11) sum += collection[i];
+            else if (collection[i] == 111) sum += collection[i] - 100;
+            else sum += 10;
+        }
+        return sum > 21;
+    }
 
-//     Найти третью цифру числа или сообщить, что её нет
+    int OverloadCroupier(int[] collection)
+    {
+        int sum = 0;
+        for (int i = 0; i < collection.Length; i++)
+        {
+            if (collection[i] < 11) sum += collection[i];
+            else if (collection[i] == 111) sum += collection[i] - 100;
+            else sum += 10;
+        }
+        return sum;
+    }
 
-// Почувствуй себя джуном
+    bool WaitUser() //метод (процедура) ожидание ответа пользователя
+    {
+        while (true)
+        {
+            string answer = Console.ReadLine();
+            return answer.ToLower() == "y";
+        }
+    }
 
-//     Дано число. Проверить кратно ли оно 7 и 23
+    string WhatIsCard(int arg)
+    {
+        string ValueCard = string.Empty;
+        if (arg == 1) ValueCard = "Туз";
+        if (arg == 2) ValueCard = "Двойка";
+        if (arg == 3) ValueCard = "Тройка";
+        if (arg == 4) ValueCard = "Четверка";
+        if (arg == 5) ValueCard = "Пятерка";
+        if (arg == 6) ValueCard = "Шестерка";
+        if (arg == 7) ValueCard = "Семерка";
+        if (arg == 8) ValueCard = "Восьмерка";
+        if (arg == 9) ValueCard = "Девятка";
+        if (arg == 10) ValueCard = "Десятка";
+        if (arg == 11) ValueCard = "Валет";
+        if (arg == 12) ValueCard = "Дама";
+        if (arg == 13) ValueCard = "Король";
+        return ValueCard;
+    }
 
-//     Дано число обозначающее день недели. Выяснить является номер недели выходным днём
+    return (player, croupier);
+}
 
-//     По двум заданным числам проверять является ли одно квадратом другого
+Console.Clear();
+var score = setUp(Mixing());
+int playerScore = 0;
+int croupierScore = 0;
+// Console.WriteLine(String.Join(',', score.Item1));
+// Console.WriteLine(String.Join(',', score.Item2));
 
-//     Проверить истинность утверждения ¬(X ⋁ Y) = ¬X ⋀ ¬Y
+for (int i = 0; i < score.Item1.Length; i++)
+{
+    if (score.Item1[i] < 11) playerScore += score.Item1[i];
+    else if (score.Item1[i] == 111) playerScore += score.Item1[i] - 100;
+    else playerScore += 10;
+    if (score.Item2[i] < 11) croupierScore += score.Item2[i];
+    else if (score.Item2[i] == 111) croupierScore += score.Item2[i]-100;
+    else croupierScore += 10;
+}
+Console.Clear();
+Console.WriteLine($"Счет игрока: {playerScore}, счет крупье: {croupierScore} ");
 
-//     Определить номер четверти плоскости, в которой находится точка с координатами Х и У, причем X ≠ 0 и Y ≠ 0
 
-//     Ввести номер четверти, показать диапазоны для возможных координат
 
-//     Программа проверяет пятизначное число на палиндромом.
+// Объясняю в двух словах:
+// Пишем
 
-//     Найти расстояние между точками в пространстве 2D/3D
+// List<int> col= new();
 
-// Почувствуй себя мидлом 23. Показать таблицу квадратов чисел от 1 до N
+// Чтобы добавить элемент пишем
+// col.Add(123);
 
-//     Найти кубы чисел от 1 до N
+// Чтобы удалить col.Remove(123);
 
-//     Найти сумму чисел от 1 до А
-
-//     Возведите число А в натуральную степень B используя цикл
-
-//     Определить количество цифр в числе
-
-//     Подсчитать сумму цифр в числе
-
-//     Написать программу вычисления произведения чисел от 1 до N
-
-//     Показать кубы чисел, заканчивающихся на четную цифру
-
-// Почувствуй себя сеньором
-
-//     Задать массив из 8 элементов и вывести их на экран
-
-//     Задать массив из 8 элементов, заполненных нулями и единицами вывести их на экран
-
-//     Задать массив из 12 элементов, заполненных числами из [0,9]. Найти сумму положительных/отрицательных элементов массива
-
-//     Написать программу замену элементов массива на противоположные
-
-//     Определить, присутствует ли в заданном массиве, некоторое число
-
-//     Задать массив, заполнить случайными положительными трёхзначными числами. Показать количество нечетных\четных чисел
-
-//     В одномерном массиве из 123 чисел найти количество элементов из отрезка [10,99]
-
-//     Найти сумму чисел одномерного массива стоящих на нечетной позиции
-
-//     Найти произведение пар чисел в одномерном массиве. Парой считаем первый и последний элемент, второй и предпоследний и т.д.
-
-//     В Указанном массиве вещественных чисел найдите разницу между максимальным и минимальным элементом
-
-// Почувствуй себя лидом
-
-//     Выяснить являются ли три числа сторонами треугольника
-
-//     Определить сколько чисел больше 0 введено с клавиатуры
-
-//     Написать программу преобразования десятичного числа в двоичное
-
-//     Найти точку пересечения двух прямых заданных уравнением y=kx+b, а1 k1 и а2 и k2 заданы
-
-//     Показать числа Фибоначчи
-
-//     Написать программу масштабирования фигуры
+// Узнать количество элементов : col.Count
+// Работать можно как с массивом: col[1] = 28;
+// int[] a=new int[]{1, 2, 3};
+// int[] b=new int[]{4, 5, 6};
+// int[] c=a.Concat(b).ToArray(); объединение массивов

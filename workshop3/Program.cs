@@ -13,4 +13,4 @@
     return deck;
 }
 
-Console.WriteLine(String.Join(',', Mixing(36, 6)));
+Console.WriteLine(String.Join(',', Mixing(36, 2)));

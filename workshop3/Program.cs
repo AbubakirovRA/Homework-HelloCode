@@ -1,17 +1,29 @@
 ﻿// 57. Написать программу упорядочивания по убыванию элементов каждой строки двумерного массива.
 int[,] Sorting(int[,] array)
 {
-    for (int i = 0; i < array.GetLength(0);i++)
+    PrintArray(array);
+    System.Console.WriteLine();
+    int j, temp = 0;
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int n = 0; n < array.GetLength(1); n++)
         {
-            for (int j=0; j < array.GetLength(1); j++)
+            for (j = 0; j < array.GetLength(1) - 1; j++)
+            {
+                if (array[i, j] > (array[i, j + 1]))
                 {
-                    
+                    temp = array[i, j];
+                    array[i, j] = array[i, j + 1];
+                    array[i, j + 1] = temp;
                 }
+            }
+            j += n;
         }
+    }
     return array;
 }
-
-
+Console.Clear();
+PrintArray(Sorting(FillArray(Array(6, 11))));
 // 66. Показать натуральные числа от 1 до N, N задано
 // int Natural(int i, int n)
 // {

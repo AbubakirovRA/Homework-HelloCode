@@ -8,9 +8,9 @@ int[,] Sorting(int[,] array)
     {
         for (int n = 0; n < array.GetLength(1); n++)
         {
-            for (j = 0; j < array.GetLength(1) - 1; j++)
+            for (j = 0; j < array.GetLength(1) - 1; j++) // цикл сортировки по убыванию (по возрастанию изменить знак)
             {
-                if (array[i, j] > (array[i, j + 1]))
+                if (array[i, j] < (array[i, j + 1])) // сортировка выбором
                 {
                     temp = array[i, j];
                     array[i, j] = array[i, j + 1];
@@ -23,7 +23,7 @@ int[,] Sorting(int[,] array)
     return array;
 }
 Console.Clear();
-PrintArray(Sorting(FillArray(Array(6, 11))));
+PrintArray(Sorting(FillArray(Array(6, 6))));
 // 66. Показать натуральные числа от 1 до N, N задано
 // int Natural(int i, int n)
 // {

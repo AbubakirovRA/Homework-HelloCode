@@ -1,13 +1,14 @@
-﻿// 49 Показать двумерный массив размером m×n заполненный вещественными числами
-double[,] Main(int m, int n)
+﻿// 50. В двумерном массиве n×k заменить четные элементы на противоположные
+int[,] Main(int m, int n)
 {
-    double[,] array = new double[m, n];
+    int[,] array = new int[m, n];
     for (int i = 0; i < m; i++)
     {
         for (int j = 0; j < n; j++)
         {
-            array[i,j]=Math.Round((new Random().NextDouble()*10), 2); // Math.Round(double value, int digits) - округление
-            Console.Write($"{array[i,j]} ");         //value - число, которое нужно округлить, digits - количество цифр в дробной части, которые нужно оставить.
+            array[i,j]=new Random().Next(10, 100); 
+            if (array[i,j]%2==0) array[i,j]=array[i,j]*-1;
+            Console.Write($"{array[i,j]} ");
         }
     
         Console.WriteLine();

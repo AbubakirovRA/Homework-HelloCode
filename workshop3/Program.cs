@@ -1,21 +1,31 @@
-﻿// 54. В матрице чисел найти сумму элементов главной диагонали
-int Main(int m, int n)
+﻿// 55. Дан целочисленный массив. Найти среднее арифметическое каждого из столбцов.
+int[,] getArray(int row, int col)
 {
-    int sum=0; int[,] array = new int[m, n];
-    for (int i = 0; i < m; i++)
+    int[,] array = new int[row, col];
+    for (int i = 0; i < row; i++)
     {
-        for (int j = 0; j < n; j++)
+        for (int j = 0; j < col; j++)
         {
-            array[i,j]=new Random().Next(1, 10);
-            Console.Write($"{array[i,j]} ");
+            array[i, j] = new Random().Next(1, 10);
+            Console.Write($"{array[i, j]}  ");
         }
         Console.WriteLine();
     }
-    for (int i = 0; i < m; i++)
+    return array;
+}
+
+int[] colAverage(int[,] array)
+{
+    int[] summ = new int [array.GetLength(1)];
+    for (int i = 0; i < array.GetLength(1); i++)
     {
-        sum +=array[i,i];
+        for (int j=0; j<array.GetLength(0);j++)
+        {
+            summ[i] +=array[j,i];
+        }
     }
-    return sum;
+    Console.WriteLine("Суммы столбцов массива:");
+    return summ;
 }
 Console.Clear();
-Console.WriteLine($"Сумма элементов главной диагонали равнf: {Main(5,5)}");
+Console.WriteLine(String.Join(", ",(colAverage(getArray(5, 5)))));

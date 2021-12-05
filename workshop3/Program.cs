@@ -31,10 +31,13 @@ int[,] RowToColumn(int[,] mass)
     return mass;
 }
 Console.Clear();
-int[,] Array = getArray(5, 5);
-PrintArray(Array);
+int[,] Array = getArray(5, 5); PrintArray(Array);
+
 if (Array.GetLength(0) != Array.GetLength(1)) Console.WriteLine("Невозможно транспонировать");
 else PrintArray(RowToColumn(Array));
+
+
+
 
 // void Myxlezh(int n)// с интернетов
 // {

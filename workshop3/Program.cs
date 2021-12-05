@@ -22,10 +22,11 @@ void PrintArray(int[,] arr)
 
 int[,] RowToColumn(int[,] mass)
 {
+    int count=0;
     for (int i = 0; i < mass.GetLength(0); i++)
     {
-        for (int j = 0; j < mass.GetLength(1); j++)
-        { int temp = mass[i, j]; mass[i, j] = mass[j, i]; mass[j, i] = temp; }
+        for (int j = count; j < mass.GetLength(1); j++)
+        { int temp = mass[i, j]; mass[i, j] = mass[j, i]; mass[j, i] = temp; } count ++;
     }
     Console.WriteLine("Транспонированный массив:");
     return mass;

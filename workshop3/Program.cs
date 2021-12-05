@@ -117,7 +117,7 @@ int[] Round(int[] deck, int[,] playersDecks, string[] playersNames, int nextCard
         if (j == playersDecks.GetLength(0) - 1)
         {
             Console.Write($"{playersNames[j]}: ");
-            cardsArray[j] = playersDecks[j, 0];
+            cardsArray[0] = playersDecks[j, 0];
             Console.Write($"{CardNames(cardsArray[0])} ");
         }
         else
@@ -144,30 +144,30 @@ int[] Round(int[] deck, int[,] playersDecks, string[] playersNames, int nextCard
     return (playersCardsScores);
 }
 
-(int, int) GamePlayer(int playerIndex, string[] playersNames, int[,] playersDecks, int[] Deck, int nextCard)
+(int, int) GamePlayer(int playerIndex, string[] playersNames, int[,] playersDecks, int[] Deck, int nextCard) // метод основного процесса игры
 {
-    int[] cardsArray = new int[playersDecks.GetLength(1)];
+    int[] cardsArray = new int[playersDecks.GetLength(1)];// создаем одномерный массив карт для текущего игрока (нужен для передачи значений в метод CardsScore
 
     Console.Clear();
     Console.Write($"У игрока {playersNames[playerIndex]} выпали карты: ");
 
-    for (int i = 0; i < 2; i++)
-    {
+    for (int i = 0; i < 2; i++) // цикл заполнения одномерного массива карт из общего двумерного массива значений, и отображения игроку его карт
+    {                           // так как при инициализации по правилам раздается две карты, то цикл до 2
         cardsArray[i] = playersDecks[playerIndex, i];
         Console.Write($"{CardNames(cardsArray[i])} ");
     }
-    int playerCardsScore = CardsScore(cardsArray);
-    Console.WriteLine(); Console.WriteLine($"Сумма очков: {CardsScore(cardsArray)} ");
+    int playerCardsScore = CardsScore(cardsArray, 2);// проверяем перед игрой значение очков игрока для полученных двух карт
+    Console.WriteLine(); Console.WriteLine($"Сумма очков: {CardsScore(cardsArray, 2)} ");
 
-    if (CardsScore(cardsArray) > 21) return (playerCardsScore, nextCard);
-
-    for (int j = 2; j < playersDecks.GetLength(1); j++)
+    if (CardsScore(cardsArray, 2) >= 21) return (playerCardsScore, nextCard); // если сумма очков превышает 21, то возвращаемся в Round, 
+                                                                          // переключаем игру на следующего игрока
+    for (int j = 2; j < playersDecks.GetLength(1); j++)// если сумма очков не превышает 21, то запускаем цикл заполнения одномерного массива, начиная с третьего эл-та
     {
-        if (playerIndex == playersNames.Length - 1)
+        if (playerIndex == playersNames.Length - 1)// проверяем текущий игрок - крупье? (последний в массиве игроков)
         {
-            CheckIn(j, playerIndex, playerCardsScore, nextCard, cardsArray, Deck, playersDecks);
+            CheckIn(j, playerIndex, playerCardsScore, nextCard, cardsArray, Deck, playersDecks); nextCard--;
             Thread.Sleep(2500);
-            if (CardsScore(cardsArray) > 17)
+            if (CardsScore(cardsArray,j) >= 17)
             {
                 return (playerCardsScore, nextCard);
             }
@@ -176,9 +176,9 @@ int[] Round(int[] deck, int[,] playersDecks, string[] playersNames, int nextCard
         {
             if (UserAnswer("Берем карту? (напишите \"y\" если да, все что угодно другое если нет)"))
             {
-                CheckIn(j, playerIndex, playerCardsScore, nextCard, cardsArray, Deck, playersDecks);
+                CheckIn(j, playerIndex, playerCardsScore, nextCard, cardsArray, Deck, playersDecks); nextCard--;
                 Thread.Sleep(2500);
-                if (CardsScore(cardsArray) > 21)
+                if (CardsScore(cardsArray, j) >= 21)
                 {
                     return (playerCardsScore, nextCard);
                 }
@@ -192,11 +192,10 @@ int[] Round(int[] deck, int[,] playersDecks, string[] playersNames, int nextCard
 
 int[] CheckIn(int count, int playerIndex, int playerCardsScore, int nextCard, int[] cardsArray, int[] Deck, int[,] playersDecks)
 {
-    cardsArray[count] = Deck[nextCard];
-    playersDecks[playerIndex, count] = Deck[nextCard--];
-    Console.Write($"Выпала карта: {CardNames(cardsArray[count])} ");
-    Console.WriteLine($"Сумма очков: {CardsScore(cardsArray)} ");
-    playerCardsScore = CardsScore(cardsArray);
+    cardsArray[count] = Deck[nextCard]; // кладем карту из колоды в колоду игроку
+    Console.Write($"Выпала карта: {CardNames(cardsArray[count])} "); // отображение в консоли для игрока
+    Console.WriteLine($"Сумма очков: {CardsScore(cardsArray, count)} ");
+    playerCardsScore = CardsScore(cardsArray, count);// отправляем одномерный массив для подсчета очков
     return cardsArray;
 }
 
@@ -212,7 +211,7 @@ bool UserAnswer(string MessageValue)                             //метод (�
 
 // Метод подсчёта наибольшей суммыочков с заданных карт, на входе массив карт заданных как числа (2-14)
 // Для определения блэкджека от суммы 21, результат при блэкджеке =99 (недостижимый простым подсчётом карт)
-int CardsScore(int[] cardsArray)
+int CardsScore(int[] cardsArray, int count)
 {
     int len = cardsArray.Length;
     int aceCount = 0;
@@ -234,7 +233,7 @@ int CardsScore(int[] cardsArray)
                 break;
         }
     }
-    if (totalScore == 21 && len == 2) { return 99; }  //указатель для отличия БлэкДжека от просто суммы 21
+    if (totalScore == 21 && count == 2) { return 99; }  //указатель для отличия БлэкДжека от просто суммы 21
     while (totalScore > 21 && aceCount > 0)         //если по итогам получили перебор за каждого туза вычитам 10 (начинаем считать его как 1), пока не закончатся тузы или не окажемся ниже 21
     {
         totalScore -= 10;
@@ -345,6 +344,5 @@ int[] RunGame(int numDecks, string[] playersNames)
     (int[,] playersDecks, int nextCard) = SetUp(playersNames, deck);
     return Round(deck, playersDecks, playersNames, nextCard);
 }
-
+Console.Clear();
 InitGame();
-

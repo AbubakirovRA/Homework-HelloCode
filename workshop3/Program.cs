@@ -1,4 +1,4 @@
-﻿// 55. Дан целочисленный массив. Найти среднее арифметическое каждого из столбцов.
+﻿// 58. Написать программу, которая в двумерном массиве заменяет строки на столбцы или сообщить, что это невозможно
 int[,] getArray(int row, int col)
 {
     int[,] array = new int[row, col];
@@ -7,25 +7,39 @@ int[,] getArray(int row, int col)
         for (int j = 0; j < col; j++)
         {
             array[i, j] = new Random().Next(1, 10);
-            Console.Write($"{array[i, j]}  ");
         }
-        Console.WriteLine();
     }
     return array;
 }
 
-int[] colAverage(int[,] array)
+void PrintArray(int[,] arr)
 {
-    int[] summ = new int [array.GetLength(1)];
-    for (int i = 0; i < array.GetLength(1); i++)
+    for (int i = 0; i < arr.GetLength(0); i++)
     {
-        for (int j=0; j<array.GetLength(0);j++)
+        for (int j = 0; j < arr.GetLength(1); j++)
         {
-            summ[i] +=array[j,i];
+            Console.Write($"{arr[i, j]}  ");
+        }
+        Console.WriteLine();
+    }
+}
+
+int[,] RowToColumn(int[,] array)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            int temp = array[i, j];
+            array[i, j] = array[j, i];
+            array[j, i] = temp;
         }
     }
-    Console.WriteLine("Суммы столбцов массива:");
-    return summ;
+    Console.WriteLine("Транспонированный массив:");
+    return array;
 }
 Console.Clear();
-Console.WriteLine(String.Join(", ",(colAverage(getArray(5, 5)))));
+int[,] Array = getArray(5, 5);
+PrintArray(Array);
+if (Array.GetLength(0) != Array.GetLength(1)) Console.WriteLine("Невозможно транспонировать");
+else PrintArray(RowToColumn(Array));

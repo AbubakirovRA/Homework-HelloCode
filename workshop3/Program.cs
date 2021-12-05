@@ -1,4 +1,4 @@
-﻿// 50. В двумерном массиве n×k заменить четные элементы на противоположные
+﻿// 51. Задать двумерный массив следующим правилом: A[m,n]=m+n
 int[,] Main(int m, int n)
 {
     int[,] array = new int[m, n];
@@ -6,8 +6,7 @@ int[,] Main(int m, int n)
     {
         for (int j = 0; j < n; j++)
         {
-            array[i,j]=new Random().Next(10, 100); 
-            if (array[i,j]%2==0) array[i,j]=array[i,j]*-1;
+            array[i,j]=i + j; 
             Console.Write($"{array[i,j]} ");
         }
     

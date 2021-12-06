@@ -6,8 +6,8 @@ int[,] Array2 = getArray(4, 4);
 Console.WriteLine($" Матрица №1:"); PrintArray(Array1);
 Console.WriteLine($" Матрица №2:"); PrintArray(Array2); 
 Console.WriteLine($" Произведение матриц:"); 
-if (Array1.GetLength(0)>Array2.GetLength(1) || Array2.GetLength(0)>Array2.GetLength(1)) 
-Console.WriteLine("Данные матрицы перемножить нельзя");
+if (Array1.GetLength(1)!=Array2.GetLength(0)||Array2.GetLength(1)!=Array1.GetLength(0)) // перемножить между собой можно матрицы в которых 
+Console.WriteLine("Данные матрицы перемножить нельзя"); // количество столбцов первой равно количеству строк второй
 else PrintArray(SumArray(Array1, Array2));
 
 

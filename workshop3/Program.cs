@@ -1,17 +1,22 @@
-﻿// 56. Написать программу, которая обменивает элементы первой строки и последней строки
+﻿// 59. В прямоугольной матрице найти строку с наименьшей суммой элементов.
 
-Console.Clear(); int[,] Array = getArray(5, 5); 
-PrintArray(Array); PrintArray(exchangeRow(Array));
+Console.Clear(); int[,] Array = getArray(5, 5);
+PrintArray(Array); Console.WriteLine($"MinValue = {findMin(Array)}");
 
-int[,] exchangeRow(int[,] mass)
+int findMin(int[,] mass)
 {
-    for (int i = 0; i < mass.GetLength(1); i++)
+    int minValue = 0;
+    for (int i = 0; i < mass.GetLength(0); i++)
     {
-        int temp = mass[0, i];
-        mass[0, i] = mass[mass.GetLength(0) - 1, i];
-        mass[mass.GetLength(0) - 1, i] = temp;
+        int sum = 0;
+        for (int j = 0; j < mass.GetLength(1); j++)
+        {
+            sum += mass[i, j];
+        }
+        if (i == 0) minValue = sum;
+        if (minValue > sum) minValue = sum;
     }
-    return mass;
+    return minValue;
 }
 
 int[,] getArray(int row, int col)
@@ -33,5 +38,5 @@ void PrintArray(int[,] arr)
         { Console.Write("{0,4}", arr[i, j]); }
         Console.WriteLine();
     }
-    Console.WriteLine(); 
+    Console.WriteLine();
 }

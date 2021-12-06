@@ -1,7 +1,11 @@
-﻿// 67. Показать натуральные числа от N до 1, N задано
+﻿// 68. Показать натуральные числа от M до N, N и M заданы
 
-int Foo(int n)
-{ if (n == 0) return 1; Console.Write("{0,4}", n); return Foo(n - 1); }
+int Natural(int i, int n)
+{
+    if (n == i-1) return i;
+    else {Console.Write("{0,4}", n);
+    return  Natural(i, n-1);}
+}
 
-Foo(20); System.Console.WriteLine();
+Natural(-10, 25); Console.WriteLine();
 

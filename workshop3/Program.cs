@@ -1,58 +1,37 @@
-﻿// 57. Написать программу упорядочивания по убыванию элементов каждой строки двумерного массива.
-int[,] Sorting(int[,] array)
+﻿// 56. Написать программу, которая обменивает элементы первой строки и последней строки
+
+Console.Clear(); int[,] Array = getArray(5, 5); 
+PrintArray(Array); PrintArray(exchangeRow(Array));
+
+int[,] exchangeRow(int[,] mass)
 {
-    PrintArray(array);
-    System.Console.WriteLine();
-    int j, temp = 0;
-    for (int i = 0; i < array.GetLength(0); i++)
+    for (int i = 0; i < mass.GetLength(1); i++)
     {
-        for (int n = 0; n < array.GetLength(1); n++)
-        {
-            for (j = 0; j < array.GetLength(1) - 1; j++) // цикл сортировки по убыванию (по возрастанию изменить знак)
-            {
-                if (array[i, j] < (array[i, j + 1])) // сортировка выбором
-                {
-                    temp = array[i, j];
-                    array[i, j] = array[i, j + 1];
-                    array[i, j + 1] = temp;
-                }
-            }
-            j += n;
-        }
+        int temp = mass[0, i];
+        mass[0, i] = mass[mass.GetLength(0) - 1, i];
+        mass[mass.GetLength(0) - 1, i] = temp;
+    }
+    return mass;
+}
+
+int[,] getArray(int row, int col)
+{
+    int[,] array = new int[row, col];
+    for (int i = 0; i < row; i++)
+    {
+        for (int j = 0; j < col; j++)
+        { array[i, j] = new Random().Next(1, 10); }
     }
     return array;
 }
-Console.Clear();
-PrintArray(Sorting(FillArray(Array(6, 6))));
 
-int[,] Array(int m, int n) // метод создания массива
+void PrintArray(int[,] arr)
 {
-    int[,] Array = new int[m, n];
-    return Array;
-}
-
-int[,] FillArray(int[,] Arr) // метод заполения массива 
-{
-
-    for (int i = 0; i < Arr.GetLength(0); i++)
+    for (int i = 0; i < arr.GetLength(0); i++)
     {
-        for (int j = 0; j < Arr.GetLongLength(1); j++)
-        {
-            Arr[i, j] = (new Random().Next(0, 10));
-        }
-    }
-    return Arr;
-}
-
-void PrintArray(int[,] Arr) // метод вывода массива в консоль
-{
-
-    for (int i = 0; i < Arr.GetLength(0); i++)
-    {
-        for (int j = 0; j < Arr.GetLongLength(1); j++)
-        {
-            Console.Write($" {Arr[i, j]}");
-        }
+        for (int j = 0; j < arr.GetLength(1); j++)
+        { Console.Write("{0,4}", arr[i, j]); }
         Console.WriteLine();
     }
+    Console.WriteLine(); 
 }

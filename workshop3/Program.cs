@@ -7,5 +7,5 @@ int Natural(int i, int n)
     return  Natural(i, n-1);}
 }
 
-Natural(-10, 25); Console.WriteLine();
+Natural(0, 25); Console.WriteLine();
 

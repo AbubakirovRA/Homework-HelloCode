@@ -1,13 +1,8 @@
-﻿// 70. Найти сумму цифр числа
+﻿// 69. Найти сумму элементов от M до N, N и M заданы
 
-int Sum(int n)
-{
-    if (n%10 == 0) return n;
-    else return n%10 + Sum(n/10);
-}
-
-Console.WriteLine(Sum(123456789));
-
+int Sum(int n, int m)
+{ if (m == n) return m; else return m + Sum(n, m - 1); }
+Console.WriteLine(Sum(-1, 10));
 
 
 

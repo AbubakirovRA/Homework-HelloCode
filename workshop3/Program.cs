@@ -347,6 +347,31 @@ string WinLossMessage(int winLossValue, int betValue, string playerName, int bal
     return (balance, bets, playersCardsScores);
 }
 
+(int[], string[]) Correction(int[] balance, string[] playersNames)//метод Correction который удаляет игроков 
+// с нулевым балансом из игры и завершает игру по достижению нулевого баланса последним игроком.
+{
+    int count = 0;
+    for (int k = 0; k < balance.Length; k++)
+    { if (balance[k] == 0) count++;}
+
+    for (int i = 0; i < count; i++)
+    {
+        for (int j=0; j < balance.Length - 1; j++)
+        {
+            if (balance[j]==0)
+            {
+                balance[j] = balance[j + 1];
+                playersNames[j] = playersNames[j + 1];
+                balance[j + 1] = 0;
+            }
+        }
+    }
+    Array.Resize(ref balance, balance.Length - count);
+    Array.Resize(ref playersNames, playersNames.Length - count);
+    playersNames[playersNames.Length - 1] = "Крупье";
+    return (balance, playersNames);
+}
+
 void InitGame()
 {
     (string[] playersNames, int numDecks, int[] balance) = Greetings(); //передаём результат кортежа в переменные
@@ -387,27 +412,3 @@ int[] RunGame(int numDecks, string[] playersNames)
 }
 Console.Clear();
 InitGame();
-
-(int[], string[]) Correction(int[] balance, string[] playersNames)
-{
-    int count = 0;
-    for (int k = 0; k < balance.Length; k++)
-    { if (balance[k] == 0) count++;}
-
-    for (int i = 0; i < count; i++)
-    {
-        for (int j=0; j < balance.Length - 1; j++)
-        {
-            if (balance[j]==0)
-            {
-                balance[j] = balance[j + 1];
-                playersNames[j] = playersNames[j + 1];
-                balance[j + 1] = 0;
-            }
-        }
-    }
-    Array.Resize(ref balance, balance.Length - count);
-    Array.Resize(ref playersNames, playersNames.Length - count);
-    playersNames[playersNames.Length - 1] = "Крупье";
-    return (balance, playersNames);
-}

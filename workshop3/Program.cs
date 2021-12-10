@@ -82,6 +82,7 @@ int[] MakeBets(string[] playersNames, int[] balance) //опрос всех иг�
 
 int AskForBet(string playerName, int playerBalance) //метод опроса отдельного игрока, переспрашивает пока ставка не будет больше 0 и меньше баланса.
 {
+    if (playerBalance==0) return 0;
     while (true)
     {
         int betAmount = RequestNumber($"{playerName} у вас {playerBalance} фишек, делайте вашу ставку: ");

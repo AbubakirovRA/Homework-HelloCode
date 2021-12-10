@@ -163,10 +163,15 @@ int[] Round(int[] deck, int[,] playersDecks, string[] playersNames, int nextCard
     int playerCardsScore = CardsScore(cardsArray, 2);// проверяем перед игрой значение очков игрока для полученных двух карт
 
     Console.WriteLine(); Console.WriteLine($"Сумма очков: {playerCardsScore} ");
+    if ((CardsScore(cardsArray, 2) == 99))
+    {
+        Console.WriteLine("Блэкджэк!!!"); Thread.Sleep(2500);
+        Console.WriteLine("нажмите любую клавишу"); Console.ReadKey();
+    }
 
     if (CardsScore(cardsArray, 2) >= 21) return (playerCardsScore, nextCard); // если сумма очков превышает 21, то возвращаемся в Round, 
                                                                               // переключаем игру на следующего игрока
-
+    if (CardsScore(cardsArray, 2) >= 17 && playerIndex == playersNames.Length - 1) return (playerCardsScore, nextCard);
     for (int j = 2; j < playersDecks.GetLength(1); j++)// если сумма очков не превышает 21, то запускаем цикл заполнения одномерного массива, начиная с третьего эл-та
     {
         if (playerIndex == playersNames.Length - 1)// проверяем текущий игрок - крупье? (последний в массиве игроков)

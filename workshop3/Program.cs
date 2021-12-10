@@ -82,7 +82,7 @@ int[] MakeBets(string[] playersNames, int[] balance) //опрос всех иг�
 
 int AskForBet(string playerName, int playerBalance) //метод опроса отдельного игрока, переспрашивает пока ставка не будет больше 0 и меньше баланса.
 {
-    if (playerBalance==0) return 0;
+    // if (playerBalance == 0) return 0;
     while (true)
     {
         int betAmount = RequestNumber($"{playerName} у вас {playerBalance} фишек, делайте вашу ставку: ");
@@ -167,7 +167,7 @@ int[] Round(int[] deck, int[,] playersDecks, string[] playersNames, int nextCard
     if ((CardsScore(cardsArray, 2) == 99))
     {
         Console.WriteLine("Блэкджэк!!!"); Thread.Sleep(2500);
-        Console.WriteLine("нажмите любую клавишу"); Console.ReadKey();
+        // Console.WriteLine("нажмите любую клавишу"); Console.ReadKey();
     }
 
     if (CardsScore(cardsArray, 2) >= 21) return (playerCardsScore, nextCard); // если сумма очков превышает 21, то возвращаемся в Round, 
@@ -361,8 +361,18 @@ void InitGame()
         bets = MakeBets(playersNames, balance); //заполняем массив принятых ставок
         playersCardsScores = RunGame(numDecks, playersNames); //запускаем игру
         (balance, bets, playersCardsScores) = Scoring(balance, bets, playersCardsScores, playersNames); //подсчитываем и сообщаем резульаты раунда
-        Console.WriteLine();
-        resumeGame = UserAnswer("Следующий раунд? (напишите \"y\" если да, все что угодно другое если нет)");
+        (balance, playersNames) = Correction(balance, playersNames);
+        if (balance.Length==0)
+        {
+            resumeGame = false;
+            System.Console.WriteLine("G A M E    O V E R!");
+            Thread.Sleep(2500);
+        }
+        else 
+        {
+            resumeGame = UserAnswer("Следующий раунд? (напишите \"y\" если да, все что угодно другое если нет)");
+        }
+        
     }
 }
 
@@ -375,3 +385,27 @@ int[] RunGame(int numDecks, string[] playersNames)
 }
 Console.Clear();
 InitGame();
+
+(int[], string[]) Correction(int[] balance, string[] playersNames)
+{
+    int count = 0;
+    for (int k = 0; k < balance.Length; k++)
+    { if (balance[k] == 0) count++;}
+
+    for (int i = 0; i < count; i++)
+    {
+        for (int j=0; j < balance.Length - 1; j++)
+        {
+            if (balance[j]==0)
+            {
+                balance[j] = balance[j + 1];
+                playersNames[j] = playersNames[j + 1];
+                balance[j + 1] = 0;
+            }
+        }
+    }
+    Array.Resize(ref balance, balance.Length - count);
+    Array.Resize(ref playersNames, playersNames.Length - count);
+    playersNames[playersNames.Length - 1] = "Крупье";
+    return (balance, playersNames);
+}

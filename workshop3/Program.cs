@@ -365,7 +365,9 @@ void InitGame()
         if (balance.Length==0)
         {
             resumeGame = false;
-            System.Console.WriteLine("G A M E    O V E R!");
+            Console.WriteLine();
+            Console.WriteLine("G A M E    O V E R!");
+            Console.WriteLine();
             Thread.Sleep(2500);
         }
         else 

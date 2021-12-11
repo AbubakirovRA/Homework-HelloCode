@@ -37,6 +37,35 @@ string CardNames(int numCard, int[,] cardSuits)
     return cardNames;
 }
 
+string CardSuit(int numCard, int[,] cardSuits)
+{
+    int count = 0; int rnd = 0;
+    string cardNames= String.Empty;
+    Random r = new Random();
+    do
+    {
+        rnd = r.Next(1, 5);
+        for (int i = 0; i < cardSuits.GetLength(0); i++)
+        { if (cardSuits[i, numCard - 2] == rnd) count++; } 
+        if (count < cardSuits.GetLength(0) / 4) break;
+    }
+    while (count == cardSuits.GetLength(0) / 4);
+
+    for (int j = 0; j < cardSuits.GetLength(0); j++)
+    {
+        if (cardSuits[j, numCard - 2] == 0)
+        {
+            cardSuits[j, numCard - 2] = rnd;
+            j = cardSuits.GetLength(1);
+        }
+    }
+    if (rnd == 1) cardNames = "♥";
+    if (rnd == 2) cardNames = "♦";
+    if (rnd == 3) cardNames =  "♣";
+    if (rnd == 4) cardNames =  "♠";
+    return cardNames;
+}
+
 int RequestNumber(string words) // ввод чисел с проверкой
 {
     while (true)
@@ -417,38 +446,3 @@ int[] RunGame(int numDecks, string[] playersNames)
 }
 Console.Clear();
 InitGame();
-
-
-string CardSuit(int numCard, int[,] cardSuits)
-{
-    int count = 0; int rnd = 0;
-    string cardNames= String.Empty;
-    Random r = new Random();
-    do
-    {
-        rnd = r.Next(1, 5);
-        for (int i = 0; i < cardSuits.GetLength(0); i++)
-        { if (cardSuits[i, numCard - 2] == rnd) count++; } 
-        if (count < cardSuits.GetLength(0) / 4) break;
-    }
-    while (count == cardSuits.GetLength(0) / 4);
-
-    for (int j = 0; j < cardSuits.GetLength(0); j++)
-    {
-        if (cardSuits[j, numCard - 2] == 0)
-        {
-            cardSuits[j, numCard - 2] = rnd;
-            j = cardSuits.GetLength(1);
-        }
-    }
-    if (rnd == 1) cardNames = "♥";
-    if (rnd == 2) cardNames = "♦";
-    if (rnd == 3) cardNames =  "♣";
-    if (rnd == 4) cardNames =  "♠";
-    return cardNames;
-}
-
-// int[,] cardSuits = new int[8,13];
-// System.Console.WriteLine(CardSuit(14, cardSuits));
-
-//Console.WriteLine(((char)2663).ToString());

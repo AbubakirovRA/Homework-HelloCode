@@ -1,4 +1,7 @@
-﻿int[] Mixing(int numCards, int numDecks)
+﻿// Первый вариант игры BlackJack, написанный в команде. Отсутствует возможность задать количество карт в колоде
+// и отсутствуют масти карт.
+
+int[] Mixing(int numCards, int numDecks)
 {
     int j, temp, fromValueCard; int count = 0; int[] Deck = new int[numCards * numDecks];
 

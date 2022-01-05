@@ -4,5 +4,4 @@ else
 {
     Console.Clear();
     Console.WriteLine($"Ok, {namePlayer}, I guess a Number!");
-    Console.WriteLine();
 }

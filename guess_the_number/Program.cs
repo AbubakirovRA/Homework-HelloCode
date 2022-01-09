@@ -4,6 +4,7 @@ else
 {
     Console.Clear();
     Console.WriteLine($"Ok, {namePlayer}, I guess a Number!");
+    
 }
 
 int RequestNumber(string words) // input of numbers with validation 

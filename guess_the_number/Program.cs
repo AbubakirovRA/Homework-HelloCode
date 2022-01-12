@@ -20,6 +20,7 @@ else
 
 (int, int, string) Welcome()
 {
+    Console.Clear();
     Console.WriteLine(getGameMessages("Welcome"));
     string playerName = Console.ReadLine();
     Console.WriteLine(getGameMessages("Hello") + playerName + "!" + getGameMessages("Rules"));
@@ -69,9 +70,9 @@ string getGameMessages(string arg)
         case "Attempts":
             return " Enter the number of attempts for which you will guess the hidden number! ";
         case "MinBound":
-            return " enter the Min bound > 0'! ";
+            return " enter the Min bound > 0:  ";
         case "MaxBound":
-            return " enter the Max bound > 0! ";
+            return " enter the Max bound > 0:  ";
         case "Max>Min":
             return "MaxBound must be greater than MinBound";
         case "I guess a Number!":
@@ -122,6 +123,7 @@ bool checkNumber(int userNumber, int secretNumber)
 
 string gameOver(int arg)
 {
+    Console.Clear();
     switch (arg)
     {
         case 0:

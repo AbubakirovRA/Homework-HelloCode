@@ -7,7 +7,8 @@ int Foo(int n){  // второе решение
   return n + 1; 
 }
 
-Foo(10); System.Console.WriteLine();
+Foo(10); 
+System.Console.WriteLine();
 
 
 
